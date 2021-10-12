@@ -6,3 +6,6 @@
     width:90%;
     float: right;
 }
+.d-none{
+    display: none;
+}

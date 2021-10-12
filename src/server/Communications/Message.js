@@ -10,6 +10,38 @@ const MessageType = Object.freeze({
 });
 
 /**
+ * <h1>ConfirmationOption</h1>
+ * The enumeration defining the message confirmation options.
+ */
+const ConfirmationOption =  Object.freeze({
+    Yes: '0',
+    No: '1',
+    YesNo: '2',
+    OK:	'3',
+    Option1 : '4',
+    Option2: '5',
+    Option3: '6',
+    Option1_Option2 : '7',
+    Option1_Option2_Option3 : '8'
+});
+
+/**
+ * <h1>ConfirmationOptions</h1>
+ * The array defining the confirmation options in plain text.
+ */
+const ConfirmationOptions = Object.freeze([
+    "Yes",
+    "No",
+    "YesNo",
+    "OK",
+    "Option1",
+    "Option2",
+    "Option3",
+    "Option1_Option2",
+    "Option1_Option2_Option3"
+]);
+
+/**
  * <h1>ObjectType</h1>
  * The enumeration defining the unique message identifier.
  */

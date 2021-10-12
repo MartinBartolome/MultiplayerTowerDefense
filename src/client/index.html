@@ -8,53 +8,68 @@
 	<link rel="stylesheet" href="css/Main.css">
 </head>
 <body>
-<div class="SessionBrowser">
-	<label>Laufende Spiele</label>
-	<table>
-		<tr>
-			<td>1</td>
-		</tr>
-		<tr>
-			<td>2</td>
-		</tr>
-		<tr>
-			<td>3</td>
-		</tr>
-	</table>
-	<div>
-		<label>Spielername:</label>
-		<input type="text" id="playernamejoin">
+<div id="div_Lobby">
+	<div class="SessionBrowser">
+		<label>Laufende Spiele</label>
+		<table>
+			<tr>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td>3</td>
+			</tr>
+		</table>
+		<div>
+			<label>Spielername:</label>
+			<input type="text" id="playernamejoin">
+		</div>
+		<input type="button" value="Send" id="join">
 	</div>
-	<input type="button" value="Send" id="join">
-</div>
-<div class="MainScreen">
-	<label>Neues Spiel</label>
+	<div class="MainScreen">
+		<label>Neues Spiel</label>
 
-	<form class="form-horizontal" action="#" id="form-signin" method="post">
-		<div class="form-group">
-			<div class="col-lg-4 col-md-5">
-				<input type="text" class="form-control" id="input-servername" name="servername" placeholder="">
+		<form class="form-horizontal" action="#" id="form-signin" method="post">
+			<div class="form-group">
+				<div class="col-lg-4 col-md-5">
+					<input type="text" class="form-control" id="input-servername" name="servername" placeholder="">
+				</div>
+				<div>
+					<select name="levelname" id="Level">
+						<option value="A">LevelA</option>
+						<option value="B">LevelB</option>
+						<option value="C">LevelC</option>
+					</select>
+				</div>
+				<div>
+					<input type="text" class="form-control" id="input-playername" name="playername" placeholder="">
+				</div>
+				<div>
+					<button type="submit" class="btn btn-primary" id="btn-signin" value="send">Start</button>
+				</div>
 			</div>
+		</form>
+	</div>
+</div>
+<div id="div_Game" class="d-none">
+	<label for="chat" id="chatLabel"></label>
+	<div id="chat">
+		<div>
+			<textarea id="input-chat" class="form-control" name="chattext" rows="1" placeholder=""></textarea>
 			<div>
-				<select name="levelname" id="Level">
-					<option value="A">LevelA</option>
-					<option value="B">LevelB</option>
-					<option value="C">LevelC</option>
-				</select>
-			</div>
-			<div>
-				<input type="text" class="form-control" id="input-playername" name="playername" placeholder="">
-			</div>
-			<div>
-				<button type="submit" class="btn btn-primary" id="btn-signin" value="send">Start</button>
+				<button id="btn-chat" type="button">Send</button>
 			</div>
 		</div>
-	</form>
+		<div id="chatEntries"></div>
+	</div>
 </div>
 <script src="scripts/jquery-2.1.3.min.js"></script>
 <script src="scripts/Communication/Message.js"></script>
 <script src="scripts/Communication/Enumerations.js"></script>
 <script src="scripts/Communication/StartGame.js"></script>
+<script src="scripts/Communication/ChatLogEntry.js"></script>
 <script src="scripts/game.js"></script>
 </body>
 </html>

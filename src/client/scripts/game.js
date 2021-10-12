@@ -12,6 +12,7 @@ $(function() {
 	connect();
 	validatePlayerName();
 	startGame();
+	handleChatText();
 });
 /**
  * Validate length (min. 3, max. 10 chars) of playername
@@ -48,6 +49,9 @@ function connect() {
 				try {
 					let data = JSON.parse(event.data);
 					switch (data.objecttype) {
+						case window.ObjectType.ChatLogEntry:
+							chatLogEntry(this, event.data);
+							break;
 						case window.ObjectType.WaitStateInvoke:
 							waitStateInvoke(this, event.data);
 						default:
@@ -101,9 +105,85 @@ function startGame() {
 			let playerIdentifier = websocketGame.playerID;
 			const message = new window.StartGame(serverName,levelName,playerIdentifier, playerName);
 			websocketGame.socket.send(message.toStream());
+			$("#div_Lobby").addClass("d-none");
+			$("#div_Game").removeClass("d-none");
 		}
 	});
 }
+/**
+ * Binds chat field to click and return event
+ * for sending text to server
+ */
+function handleChatText() {
+	$("#btn-chat").on("click", sendChatText);
+
+	$("#input-chat").on("keyup", function(e) {
+		if(e.key === "Enter" && e.shiftKey === false) {
+			sendChatText();
+		}
+	});
+}
+
+/**
+ * Send text of chat input to websocket server
+ * and clear the field
+ */
+function sendChatText() {
+	let input = $("#input-chat").val();
+	console.log("[SEND] chat text: " + input);
+
+	let message = new window.ChatLogEntry(window.TransmissionMode.Unicast, input);
+	websocketGame.socket.send(message.toStream());
+
+	$("#input-chat").val("");
+	addChatText(input, false);
+}
+/**
+ * Add sent chat text to chatbox, that means create a div-element for a card
+ * https://stackoverflow.com/questions/40520564/create-divs-with-different-classes-and-append-jquery-dynamically
+ * https://stackoverflow.com/questions/40903462/how-to-keep-a-scrollbar-always-bottom
+ */
+function addChatText(message, received) {
+	let divcard = $("<div/>", {
+		"class" : "card"
+	});
+	let divcardbody = $("<div/>", {
+		"class" : "card-body"
+	});
+
+	let text = $("<p/>");
+	text.text(message);
+	//if message is received put it left otherwise right
+	if (received == true) {
+		text.addClass("card-text float-left");
+	}
+	else {
+		text.addClass("card-text float-right");
+	}
+
+	divcard.append(divcardbody);
+	divcardbody.append(text);
+	$("#chatEntries").append(divcard);
+	//keep scrollbar at bottom
+	var chatBody = document.querySelector('#chatEntries');
+	chatBody.scrollTop = chatBody.scrollHeight - chatBody.clientHeight;
+}
+/**
+ * Handle chat message from server (if received ChatLogEntry)
+ * @param clientWebSocket
+ * @param stream
+ */
+function chatLogEntry(clientWebSocket, stream) {
+	let message = new window.ChatLogEntry(stream.transmissionMode,stream.text);
+	message.fromStream(stream);
+	if(message.getTransmissionMode() == window.TransmissionMode.Unicast) {
+		addChatText(message.text, true);
+	}
+	else if (message.getTransmissionMode() == window.TransmissionMode.Broadcast) {
+		alert(message.text);
+	}
+}
+
 /**
  * Bind event to prevent page reload
  */

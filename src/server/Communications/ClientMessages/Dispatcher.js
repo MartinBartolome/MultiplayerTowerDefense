@@ -23,6 +23,9 @@ class Dispatcher {
         try {
             this.message.fromStream(stream);
             switch (this.message.getObjectType()) {
+                case Message.ObjectType.ChatLogEntry:
+                    this.handler.chatLogEntry(clientWebSocket, stream);
+                    break;
                 case Message.ObjectType.StartGame:
                     this.handler.startGame(clientWebSocket, stream);
                     break;
