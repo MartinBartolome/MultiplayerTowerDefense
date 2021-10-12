@@ -1,32 +1,30 @@
-// Settings
-var port = 8000;
+const ClientWebSocket = require('./Communications/ClientWebSocket');
+const PORT_WS = 8000;
+const WebSocket = require('ws');
+const server = new WebSocket.Server({ port: PORT_WS});
 
-// Server code
-var WebSocketServer = require('ws').Server;
-var server = new WebSocketServer({ port: port });
+const DateTime = require('./DateTime/DateTime').DateTime;
 
-var User = require('./game').User;
-var Room = require('./game').Room;
-
-var room1 = new Room();
-
-server.on('connection', function(socket) {
-
-  var user = new User(socket);
-
-  room1.addUser(user);
-
-  console.log("A connection established");
-
-  var message = "Welcome " + user.id + " joining the party. Total connection: " + room1.users.length;
-
-  room1.sendAll(message);
+server.on("connection", function(socket) {
+  // Create and register client web socket
+  var clientWebSocket = new ClientWebSocket(socket);
+  socket.onmessage = function(event) {
+    console.log("Data received: " + event.data);
+    clientWebSocket.receive(event.data)
+  }
+  socket.onclose = function(event) {
+    clientWebSocket.dispose();
+    console.log(clientWebSocket.getPlayerName() + "(" + clientWebSocket.getPlayerIdentifier() + ") closed connection");
+  }
 });
 
+
+console.clear();
 console.log("Tower Defense");
 console.log("Server");
 console.log("Version: 00:00:00 / FFHS HS2021/22 / Martin Bartolomé & Thomas Curiger");
 console.log("----------------------------------------------------------------------------------------------------------------");
+console.log("Boot time: " + new DateTime().toTimestampLongString());
 
 console.log("WebSocket server is running.");
-console.log("Listening to port " + port + ".");
+console.log("Listening to port " + PORT_WS + ".");

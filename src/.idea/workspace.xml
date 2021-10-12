@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c6a0e9a1-f77d-4e6f-a072-2fbf90bb65f8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/css/Main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/scripts/Communication/Enumerations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/scripts/Communication/Message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/scripts/Communication/StartGame.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/scripts/game.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Communications/ClientMessages/Dispatcher.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Communications/ClientMessages/Handler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Communications/ClientMessages/StartGame.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Communications/ClientWebSocket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Communications/Message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Communications/ServerMessages/WaitStateInvoke.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Database/Database.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/DateTime/DateTime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/FileSystem/Serializer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/html5games.websocket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/jquery-2.1.3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/scripts/jquery-2.1.3.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/game.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/BufferPool.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/BufferUtil.fallback.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/BufferUtil.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/ErrorCodes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/Extensions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/PerMessageDeflate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/Receiver.hixie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/Receiver.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/Sender.hixie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/Sender.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/Validation.fallback.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/Validation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/WebSocket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/WebSocketServer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/lib/browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/binding.gyp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/build/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/build/Release/.deps/Release/bufferutil.node.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/build/Release/.deps/Release/obj.target/bufferutil.node.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/build/Release/.deps/Release/obj.target/bufferutil/src/bufferutil.o.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/build/Release/bufferutil.node" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/build/Release/linker.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/build/Release/obj.target/bufferutil.node" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/build/Release/obj.target/bufferutil/src/bufferutil.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/build/binding.Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/build/bufferutil.target.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/build/config.gypi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/fallback.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/bindings/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/bindings/bindings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/bindings/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/nan/.dntrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/nan/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/nan/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/nan/appveyor.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/nan/include_dirs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/nan/nan.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/nan/nan_implementation_12_inl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/nan/nan_implementation_pre_12_inl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/nan/nan_new.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/nan/nan_string_bytes.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/node_modules/nan/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/bufferutil/src/bufferutil.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/options/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/options/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/options/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/options/lib/options.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/options/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/ultron/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/ultron/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/ultron/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/ultron/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/ultron/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/ultron/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/binding.gyp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/build/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/build/Release/.deps/Release/obj.target/validation.node.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/build/Release/.deps/Release/obj.target/validation/src/validation.o.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/build/Release/.deps/Release/validation.node.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/build/Release/linker.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/build/Release/obj.target/validation.node" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/build/Release/obj.target/validation/src/validation.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/build/Release/validation.node" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/build/binding.Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/build/config.gypi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/build/validation.target.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/fallback.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings/bindings.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/nan/.dntrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/nan/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/nan/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/nan/appveyor.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/nan/include_dirs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/nan/nan.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/nan/nan_implementation_12_inl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/nan/nan_implementation_pre_12_inl.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/nan/nan_new.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/nan/nan_string_bytes.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/node_modules/nan/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/node_modules/utf-8-validate/src/validation.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/node_modules/ws/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1zOTEe155U72ArkLUoMnB2WWw94" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.15.1" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.17.21" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/index.html" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\_Coding\FFHS\webE\webe-project\src\client\scripts" />
+      <recent name="C:\_Coding\FFHS\webE\webe-project\src\client\scripts\Communication" />
+      <recent name="C:\_Coding\FFHS\webE\webe-project\src\server" />
+      <recent name="C:\_Coding\FFHS\webE\webe-project\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Node.js.server.js">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/src/client/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="server.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="server/server.js" working-dir="$PROJECT_DIR$">
+      <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
+        <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" start="true" with-js-debugger="true" url="http://localhost:63342/src/client/index.html" />
+      </EXTENSION>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.server.js" />
+      <item itemvalue="JavaScript Debug.index.html" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c6a0e9a1-f77d-4e6f-a072-2fbf90bb65f8" name="Default Changelist" comment="" />
+      <created>1634018023171</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634018023171</updated>
+      <workItem from="1634018024350" duration="16389000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
