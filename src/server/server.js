@@ -22,7 +22,7 @@ server.on("connection", function(socket) {
 console.clear();
 console.log("Tower Defense");
 console.log("Server");
-console.log("Version: 00:00:00 / FFHS HS2021/22 / Martin Bartolomé & Thomas Curiger");
+console.log("Version: 00:00:00 / FFHS HS2021/22 / Martin Bartolomé & Thomas Curiger ");
 console.log("----------------------------------------------------------------------------------------------------------------");
 console.log("Boot time: " + new DateTime().toTimestampLongString());
 
