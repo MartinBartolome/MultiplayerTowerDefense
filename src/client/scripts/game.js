@@ -97,13 +97,11 @@ function startGame() {
 			alert(lang.ALERT_CONNECTIONLOST);
 		}
 		else {
-			let serverName = this.servername.value;
 			let playerName = this.playername.value;
-			let levelName = this.levelname.value;
 			e.preventDefault(); //prevent page reload
 			bindPreventPageReload();
 			let playerIdentifier = websocketGame.playerID;
-			const message = new window.StartGame(serverName,levelName,playerIdentifier, playerName);
+			const message = new window.StartGame(playerIdentifier, playerName);
 			websocketGame.socket.send(message.toStream());
 			$("#div_Lobby").addClass("d-none");
 			$("#div_Game").removeClass("d-none");
@@ -145,22 +143,20 @@ function sendChatText() {
  */
 function addChatText(message, received) {
 	let divcard = $("<div/>", {
-		"class" : "card"
+		"class" : "chatcard"
 	});
 	let divcardbody = $("<div/>", {
-		"class" : "card-body"
+		"class" : "chatcard-body"
 	});
-
 	let text = $("<p/>");
 	text.text(message);
 	//if message is received put it left otherwise right
 	if (received == true) {
-		text.addClass("card-text float-left");
+		text.addClass("chatcard-text float-left");
 	}
 	else {
-		text.addClass("card-text float-right");
+		text.addClass("chatcard-text float-right");
 	}
-
 	divcard.append(divcardbody);
 	divcardbody.append(text);
 	$("#chatEntries").append(divcard);

@@ -21,8 +21,6 @@ class StartGame extends Message.Message {
         var data = JSON.parse(stream);
         this.playerName = data.name;
         this.playerIdentifier = data.identifier;
-        this.serverName = data.serverName;
-        this.levelName = data.levelName;
     }
 
     /**
@@ -39,20 +37,6 @@ class StartGame extends Message.Message {
      */
     getPlayerName() {
         return this.playerName;
-    }
-    /**
-     * Get the server name.
-     * @return The server name.
-     */
-    getServerName() {
-        return this.serverName;
-    }
-    /**
-     * Get the level name.
-     * @return The level name.
-     */
-    getLevelName() {
-        return this.levelName;
     }
 }
 

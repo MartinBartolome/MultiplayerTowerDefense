@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19af5b09-9e8a-4ee6-8db5-60876b163df8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/scripts/Communication/ChatLogEntry.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/Communications/ClientMessages/ChatLogEntry.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/Communications/ClientMessages/Response.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/Communications/ServerMessages/GameBoardSetup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/Communications/ServerMessages/Request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/GameControl/Player.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/GameControl/Session.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/css/Main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/scripts/Communication/StartGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/scripts/Communication/StartGame.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/scripts/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/scripts/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/Communications/ClientMessages/Dispatcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/Communications/ClientMessages/Dispatcher.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/Communications/ClientMessages/Handler.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/Communications/ClientMessages/Handler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/Communications/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/Communications/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/Communications/ClientMessages/StartGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/Communications/ClientMessages/StartGame.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +97,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/GameControl/Session.js</url>
           <line>102</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

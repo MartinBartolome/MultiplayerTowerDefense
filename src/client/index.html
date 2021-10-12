@@ -8,63 +8,31 @@
 	<link rel="stylesheet" href="css/Main.css">
 </head>
 <body>
-<div id="div_Lobby">
-	<div class="SessionBrowser">
-		<label>Laufende Spiele</label>
-		<table>
-			<tr>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td>2</td>
-			</tr>
-			<tr>
-				<td>3</td>
-			</tr>
-		</table>
-		<div>
-			<label>Spielername:</label>
-			<input type="text" id="playernamejoin">
-		</div>
-		<input type="button" value="Send" id="join">
-	</div>
-	<div class="MainScreen">
-		<label>Neues Spiel</label>
-
+<main>
+	<div id="div_Lobby">
 		<form class="form-horizontal" action="#" id="form-signin" method="post">
-			<div class="form-group">
-				<div class="col-lg-4 col-md-5">
-					<input type="text" class="form-control" id="input-servername" name="servername" placeholder="">
+			<h1>Neues Spiel</h1>
+			<div class="formcontainer">
+				<hr/>
+				<div class="container">
+					<label for="input-playername"><strong>Benutzername</strong></label>
+					<input type="text" class="form-control" id="input-playername" name="playername" placeholder="Benutzername Eingeben" required>
 				</div>
-				<div>
-					<select name="levelname" id="Level">
-						<option value="A">LevelA</option>
-						<option value="B">LevelB</option>
-						<option value="C">LevelC</option>
-					</select>
-				</div>
-				<div>
-					<input type="text" class="form-control" id="input-playername" name="playername" placeholder="">
-				</div>
-				<div>
-					<button type="submit" class="btn btn-primary" id="btn-signin" value="send">Start</button>
-				</div>
+				<button type="submit" class="btn btn-primary" id="btn-signin" value="send">Login</button>
 			</div>
 		</form>
 	</div>
-</div>
-<div id="div_Game" class="d-none">
-	<label for="chat" id="chatLabel"></label>
-	<div id="chat">
-		<div>
-			<textarea id="input-chat" class="form-control" name="chattext" rows="1" placeholder=""></textarea>
-			<div>
-				<button id="btn-chat" type="button">Send</button>
-			</div>
+	<div id="div_Game" class="d-none">
+		<div id="chat">
+			<div id="chatEntries"></div>
+			<form name="message" action="">
+				<input class="form-control" name="chattext" type="text" id="input-chat" size="63" />
+				<input name="submitmsg" type="submit"  id="btn-chat" value="Send" />
+			</form>
 		</div>
-		<div id="chatEntries"></div>
 	</div>
-</div>
+</main>
+
 <script src="scripts/jquery-2.1.3.min.js"></script>
 <script src="scripts/Communication/Message.js"></script>
 <script src="scripts/Communication/Enumerations.js"></script>

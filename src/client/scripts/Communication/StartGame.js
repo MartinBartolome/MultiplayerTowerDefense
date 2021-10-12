@@ -3,8 +3,6 @@ class StartGame extends window.Message {
         super(window.ObjectType.StartGame);
         this.playerIdentifier = playerIdentifier;
         this.playerName = playerName;
-        this.serverName = serverName;
-        this.levelName = levelName;
     }
 
     /**
@@ -16,8 +14,6 @@ class StartGame extends window.Message {
         data.objecttype = this.objectType;
         data.identifier = this.playerIdentifier;
         data.name = this.playerName;
-        data.serverName = this.serverName;
-        data.levelName = this.levelName;
         return JSON.stringify(data);
     }
 
@@ -28,8 +24,6 @@ class StartGame extends window.Message {
     fromStream(stream) {
         this.playerIdentifier = "";
         this.playerName = "";
-        this.serverName = "";
-        this.levelName = "";
     }
 }
 
