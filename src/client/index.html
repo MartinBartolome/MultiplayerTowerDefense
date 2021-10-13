@@ -1,18 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 	<meta charset="utf-8">
-	<title>WebSockets demo for HTML5 Games Development: A Beginner’s Guide</title>
-	<meta name="description" content="This is a WebSockets demo for the book HTML5 Games Development: A Beginner’s Guide by Makzan">
-	<meta name="author" content="Makzan">
-
+	<title>Tower Defense</title>
+	<meta name="description" content="Tower Defense">
+	<meta name="author" content="Martin Bartolomé & Thomas Curiger">
+	<link rel="stylesheet" href="css/Main.css">
 </head>
 <body>
-	<ul id="chat-history"></ul>
-	<input type="text" id="chat-input" autofocus autocomplete="off">
-	<input type="button" value="Send" id="send">
+<main>
+	<div id="div_Lobby">
+		<form class="form-horizontal" action="#" id="form-signin" method="post">
+			<h1>Neues Spiel</h1>
+			<div class="formcontainer">
+				<hr/>
+				<div class="container">
+					<label for="input-playername"><strong>Benutzername</strong></label>
+					<input type="text" class="form-control" id="input-playername" name="playername" placeholder="Benutzername Eingeben" required>
+				</div>
+				<button type="submit" class="btn btn-primary" id="btn-signin" value="send">Login</button>
+			</div>
+		</form>
+	</div>
+	<div id="div_Game" class="d-none">
+		<div id="chat">
+			<div id="chatEntries"></div>
+			<form name="message" action="">
+				<input class="form-control" name="chattext" type="text" id="input-chat" size="63" />
+				<input name="submitmsg" type="submit"  id="btn-chat" value="Send" />
+			</form>
+		</div>
+	</div>
+</main>
 
-<script src="js/jquery-2.1.3.min.js"></script>
-<script src="js/html5games.websocket.js"></script>
+<script src="scripts/jquery-2.1.3.min.js"></script>
+<script src="scripts/Communication/Message.js"></script>
+<script src="scripts/Communication/Enumerations.js"></script>
+<script src="scripts/Communication/StartGame.js"></script>
+<script src="scripts/Communication/ChatLogEntry.js"></script>
+<script src="scripts/game.js"></script>
 </body>
 </html>
