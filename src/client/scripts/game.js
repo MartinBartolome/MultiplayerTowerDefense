@@ -48,12 +48,14 @@ function connect() {
 
 				try {
 					let data = JSON.parse(event.data);
+
 					switch (data.objecttype) {
 						case window.ObjectType.ChatLogEntry:
 							chatLogEntry(this, event.data);
 							break;
 						case window.ObjectType.WaitStateInvoke:
 							waitStateInvoke(this, event.data);
+							break;
 						default:
 							console.log("[MESSAGE.WARNING] Client doesn't expect this message: " + data);
 							break;

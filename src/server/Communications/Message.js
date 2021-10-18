@@ -48,7 +48,8 @@ const ConfirmationOptions = Object.freeze([
 const ObjectType =  Object.freeze({
     Undefined: '0',
     StartGame: '1',
-    WaitStateInvoke: '2'
+    ChatLogEntry: '2',
+    WaitStateInvoke: '3'
 });
 
 /**
