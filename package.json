@@ -1,0 +1,9 @@
+{
+  "name": "tower-defense",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.2.3"
+  }
+}
