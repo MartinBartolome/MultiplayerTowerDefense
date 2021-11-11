@@ -58,8 +58,8 @@ async function gameLoop() {
       main();
       // lets go
       moveEnemies();
-      if (i % 2 == 0) {
-        spawnEnemy(245);
+      if (i % 3 == 0) {
+        spawnEnemy();
       }
       /* render() */
       console.log(map);
@@ -100,17 +100,17 @@ function connect() {
               break;
             case messageType.GAMESTART:
               addCanvas();
-              /* reset(); */
+              reset();
               gameLoop();
-              spawnEnemy(245);
               websocketGame.running = true;
               break;
             case messageType.GAMEUPDATE:
+				console.log('data in method', data)
               handleGameUpdate(data);
               break;
             case messageType.GAMESTOP:
               websocketGame.running = false;
-              /* reset(); */
+              reset();
               removeCanvas();
               break;
             default:
@@ -142,6 +142,11 @@ function connect() {
     console.log('[ERROR] An error occurred: ' + exception);
   }
 }
+
+function reset() {
+	handleGameExit();
+}
+
 /**
  * Submit playername of signin form to server to start a game.
  */
