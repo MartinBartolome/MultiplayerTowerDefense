@@ -105,7 +105,6 @@ function connect() {
               websocketGame.running = true;
               break;
             case messageType.GAMEUPDATE:
-				console.log('data in method', data)
               handleGameUpdate(data);
               break;
             case messageType.GAMESTOP:
