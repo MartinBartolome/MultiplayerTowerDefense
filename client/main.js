@@ -3,7 +3,8 @@ const messageType = {
   CHAT: 'chat',
   GAMEUPDATE: 'gameupdate',
   GAMESTART: 'gamestart',
-  GAMESTOP: 'gamestop'
+  GAMESTOP: 'gamestop',
+  SHOT: 'shot'
 };
 
 var websocketGame = {
@@ -49,11 +50,10 @@ function sleep(ms) {
 }
 
 async function gameLoop() {
-  // das wird hier gebraucht
+  // das wird Client-mässig gebraucht
   let i = 0;
   while (1) {
     i++;
-    console.log(i % 2 == 0 ? 'tick' : 'tock');
     if (websocketGame.running) {
       main();
       // lets go
@@ -62,7 +62,7 @@ async function gameLoop() {
         spawnEnemy();
       }
       /* render() */
-      console.log(map);
+      /* console.log(map); */
     }
     await sleep(1000);
   }
@@ -86,7 +86,7 @@ function connect() {
 
       //on message event
       websocketGame.socket.onmessage = function (event) {
-        console.log('[MESSAGE] Data received from server: ' + event.data);
+        /* console.log('[MESSAGE] Data received from server: ' + event.data); */
 
         try {
           let data = JSON.parse(event.data);
@@ -106,6 +106,9 @@ function connect() {
               break;
             case messageType.GAMEUPDATE:
               handleGameUpdate(data);
+              break;
+            case messageType.SHOT:
+              renderHit(data);
               break;
             case messageType.GAMESTOP:
               websocketGame.running = false;
@@ -143,7 +146,7 @@ function connect() {
 }
 
 function reset() {
-	handleGameExit();
+  handleGameExit();
 }
 
 /**
@@ -165,7 +168,7 @@ function startGame() {
       bindPreventPageReload();
       let playerIdentifier = websocketGame.playerID;
       websocketGame.playerName = playerName;
-      console.log('info', playerName, playerIdentifier);
+      /* console.log('info', playerName, playerIdentifier); */
       let message = createMessage(messageType.REGISTER, {
         playerIdentifier: playerIdentifier,
         playerName: playerName

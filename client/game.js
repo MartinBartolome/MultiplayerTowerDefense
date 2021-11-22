@@ -60,7 +60,8 @@ function handleGameUpdate(event) {
       break;
     case 1:
       // enemy spawns
-      map.enemiesMoving.push([x, y, type]);
+      let hp = 100;
+      map.enemiesMoving.push([x, y, hp, type]);
       break;
     case 2:
       // push tower
@@ -83,11 +84,22 @@ function spawnEnemy() {
   let value = {
     x: x,
     y: y,
+    hp: 100,
     updateType: 1,
     type: 247
   };
   let message = createMessage(messageType.GAMEUPDATE, value);
   websocketGame.socket.send(message);
+}
+
+function renderHit(event) {
+  // render here, sound, draw etc.
+
+  // if dead, remove
+  if (event.value.enemyHp <= 0) {
+    map.enemiesMoving[0].shift;
+  }
+
 }
 
 function spawnTowerPlayerOne() {
@@ -147,6 +159,8 @@ function moveEnemies() {
       enemy[0]++;
     }
     if (enemy[1] == 12) {
+      // lost game!
+      console.log('you lost!');
       map.enemiesMoving.shift();
     }
   });
@@ -197,7 +211,7 @@ var render = function () {
     // draw enemies
     for (i = 0; i < map.enemiesMoving.length; i++) {
       let enemy = map.enemiesMoving[i];
-      let tile = enemy[2];
+      let tile = enemy[3];
       if (tile !== 0) {
         // 0 => empty tile
         ctx.drawImage(
