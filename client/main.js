@@ -50,6 +50,7 @@ function sleep(ms) {
 }
 
 async function gameLoop() {
+  console.log('this')
   // das wird Client-mässig gebraucht
   let i = 0;
   while (1) {
@@ -57,10 +58,6 @@ async function gameLoop() {
     if (websocketGame.running) {
       main();
       // lets go
-      moveEnemies();
-      if (i % 3 == 0) {
-        spawnEnemy();
-      }
       /* render() */
       /* console.log(map); */
     }

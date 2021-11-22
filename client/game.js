@@ -55,8 +55,11 @@ function handleGameUpdate(event) {
   let type = event.value.type;
   switch (event.value.updateType) {
     case 0:
+      map.enemiesMoving = event.value.enemiesMoving;
+      render();
+      console.log(event.value.enemiesMoving)
       // enemy moves
-      // shooting comes here!
+      // handle moves
       break;
     case 1:
       // enemy spawns
@@ -76,28 +79,13 @@ function handleGameExit() {
   map.towersAlive = [];
 }
 
-function spawnEnemy() {
-  // get starting coordinates
-  let topRow = map.tiles[0];
-  let x = topRow.indexOf(60);
-  let y = 0;
-  let value = {
-    x: x,
-    y: y,
-    hp: 100,
-    updateType: 1,
-    type: 247
-  };
-  let message = createMessage(messageType.GAMEUPDATE, value);
-  websocketGame.socket.send(message);
-}
 
 function renderHit(event) {
   // render here, sound, draw etc.
 
   // if dead, remove
   if (event.value.enemyHp <= 0) {
-    map.enemiesMoving[0].shift;
+    map.enemiesMoving.shift();
   }
 
 }
@@ -105,7 +93,6 @@ function renderHit(event) {
 function spawnTowerPlayerOne() {
   let x = Math.floor(Math.random() * 13);
   let y = Math.floor(Math.random() * 13);
-  console.log('spawning tower', x, y);
   let value = {
     x: x,
     y: y,
@@ -114,13 +101,11 @@ function spawnTowerPlayerOne() {
   };
   let message = createMessage(messageType.GAMEUPDATE, value);
   websocketGame.socket.send(message);
-  /* map.towersAlive.push([x,y,248]); */
 }
 
 function spawnTowerPlayerTwo() {
   let x = Math.floor(Math.random() * 13);
   let y = Math.floor(Math.random() * 13);
-  console.log('spawning tower', x, y);
   let value = {
     x: x,
     y: y,
@@ -129,42 +114,9 @@ function spawnTowerPlayerTwo() {
   };
   let message = createMessage(messageType.GAMEUPDATE, value);
   websocketGame.socket.send(message);
-  /* map.towersAlive.push([x,y,248]); */
 }
 
-function moveEnemies() {
-  map.enemiesMoving.forEach(enemy => {
-    if (
-      enemy[1] == 0 ||
-      enemy[1] == 1 ||
-      enemy[1] == 3 ||
-      enemy[1] == 4 ||
-      enemy[1] == 5 ||
-      enemy[1] == 7 ||
-      enemy[1] == 9 ||
-      enemy[1] == 10 ||
-      (enemy[1] == 2 && enemy[0] == 2) ||
-      (enemy[1] == 6 && enemy[0] == 4) ||
-      (enemy[1] == 8 && enemy[0] == 5) ||
-      enemy[1] == 11
-    ) {
-      enemy[1]++;
-    } else if (enemy[1] == 2 && enemy[0] == 3) {
-      enemy[0]--;
-    } else if (
-      (enemy[1] == 6 && enemy[0] == 2) ||
-      (enemy[1] == 6 && enemy[0] == 3) ||
-      (enemy[1] == 8 && enemy[0] == 4)
-    ) {
-      enemy[0]++;
-    }
-    if (enemy[1] == 12) {
-      // lost game!
-      console.log('you lost!');
-      map.enemiesMoving.shift();
-    }
-  });
-}
+
 
 // Background image
 var bgReady = false;
