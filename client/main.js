@@ -83,9 +83,6 @@ function connect() {
             case messageType.CHAT:
               chatLogEntry(data);
               break;
-            case messageType.REGISTER:
-              // waitStateInvoke(this, event.data);
-              break;
             case messageType.GAMESTART:
               addCanvas();
               reset();

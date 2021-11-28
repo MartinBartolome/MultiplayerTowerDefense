@@ -3,6 +3,8 @@ const Message = require('./communication/Message');
 const {ChatMessage} = require("./communication/ClientMessages/ChatMessage");
 const {RegisterMessage} = require("./communication/ClientMessages/RegisterMessage");
 const {GameUpdateMessage} = require("./communication/ClientMessages/GameUpdateMessage");
+const {GameStartMessage} = require("./communication/ServerMessages/GameStartMessage")
+const {GameStopMessage} = require("./communication/ServerMessages/GameStopMessage")
 
 const server = new WebSocket.Server({ port: 8080 });
 
@@ -142,10 +144,10 @@ async function gameLoop() {
       broadcast(message);
       gameStatus.countdown--;
     } else if (gameStatus.countdown == 0 && !gameStatus.started) {
-      let message = createMessage(Message.MessageType.CHAT, 'LFG');
+      let message = new ChatMessage('LFG')
       gameStatus.started = true;
       broadcast(message);
-      let message2 = createMessage(Message.MessageType.GAMESTART, 'starting');
+      let message2 = new GameStartMessage();
       broadcast(message2);
     } else if (gameStatus.started) {
       if ((i + 1) % 3 == 0) {
