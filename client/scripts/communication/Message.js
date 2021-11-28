@@ -1,14 +1,14 @@
 class Message {
-    constructor(objectType) {
-        this.objectType = objectType;
+    constructor(messageType) {
+        this.messageType = messageType;
     }
     fromStream(stream) {
         var data = JSON.parse(stream);
-        this.objectType = data.objecttype;
+        this.messageType = data.messageType;
     }
 
     getObjectType() {
-        return this.objectType;
+        return this.messageType;
     }
 
     toStream() {

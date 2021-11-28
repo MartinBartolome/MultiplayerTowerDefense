@@ -6,3 +6,12 @@ const messageType = Object.freeze({
     GAMESTOP: 'gamestop',
     SHOT: 'shot'
 });
+window.messageType = messageType;
+
+const UpdateType = Object.freeze({
+    IRGENDWAS: 0,
+    NOCHIRGENDWAS: 1,
+    AddTower: 2,
+});
+
+window.UpdateType = UpdateType;

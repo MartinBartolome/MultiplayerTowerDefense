@@ -6,6 +6,12 @@ const MessageType = Object.freeze({
     GAMESTOP: 'gamestop'
   });
 
+const UpdateType = Object.freeze({
+    IRGENDWAS: 0,
+    NOCHIRGENDWAS: 1,
+    AddTower: 2,
+});
+
 class Message{
     constructor(messageType)
     {
@@ -22,5 +28,7 @@ class Message{
 
 module.exports = {
     Message : Message,
-    MessageType : MessageType
+    MessageType : MessageType,
+    UpdateType : UpdateType
+
 }

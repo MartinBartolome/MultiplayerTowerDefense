@@ -93,27 +93,15 @@ function renderHit(event) {
 function spawnTowerPlayerOne() {
   let x = Math.floor(Math.random() * 13);
   let y = Math.floor(Math.random() * 13);
-  let value = {
-    x: x,
-    y: y,
-    updateType: 2,
-    type: 247
-  };
-  let message = createMessage(messageType.GAMEUPDATE, value);
-  websocketGame.socket.send(message);
+  let message = new window.GameUpdateMessage(window.UpdateType.AddTower,x,y,247);
+  websocketGame.socket.send(message.toStream());
 }
 
 function spawnTowerPlayerTwo() {
   let x = Math.floor(Math.random() * 13);
   let y = Math.floor(Math.random() * 13);
-  let value = {
-    x: x,
-    y: y,
-    updateType: 2,
-    type: 248
-  };
-  let message = createMessage(messageType.GAMEUPDATE, value);
-  websocketGame.socket.send(message);
+  let message = new window.GameUpdateMessage(window.UpdateType.AddTower,x,y,248);
+  websocketGame.socket.send(message.toStream());
 }
 
 

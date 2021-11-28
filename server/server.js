@@ -1,6 +1,8 @@
 const WebSocket = require('ws');
 const Message = require('./communication/Message');
 const {ChatMessage} = require("./communication/ClientMessages/ChatMessage");
+const {RegisterMessage} = require("./communication/ClientMessages/RegisterMessage");
+const {GameUpdateMessage} = require("./communication/ClientMessages/GameUpdateMessage");
 
 const server = new WebSocket.Server({ port: 8080 });
 
@@ -26,19 +28,24 @@ server.on('connection', socket => {
     try {
       this.message = new Message.Message();
       this.message.fromStream(event.data);
-      let data = JSON.parse(event.data);
       switch (this.message.messageType) {
         case Message.MessageType.CHAT:
-          broadcast(event.data);
+          let chatMessage = new ChatMessage();
+          chatMessage.fromStream(event.data);
+          broadcast(chatMessage);
           break;
         case Message.MessageType.REGISTER:
-          gameStatus.registeredPlayers.set(socket.id, data.value);
+          let regmsg = new RegisterMessage();
+          regmsg.fromStream(event.data);
+          gameStatus.registeredPlayers.set(socket.id, regmsg.playerID);
           break;
         case Message.MessageType.GAMEUPDATE:
-          if (data.value.updateType == 2) {
-            addTower(data.value);
+          let updatemessage = new GameUpdateMessage();
+          updatemessage.fromStream(event.data);
+          if (updatemessage.updateType == Message.UpdateType.AddTower) {
+            addTower(updatemessage);
           }
-          broadcast(event.data);
+          broadcast(updatemessage);
           break;
         default:
           console.log("[MESSAGE.WARNING] Client doesn't expect this message: " + data);
@@ -130,6 +137,7 @@ async function gameLoop() {
       console.log('Start Countdown');
     } else if (gameStatus.countdown > 0 && gameStatus.countdownStarted) {
       let message = new ChatMessage();
+      message.playerName = 'Server';
       message.text = 'Game start in ' + gameStatus.countdown;
       broadcast(message);
       gameStatus.countdown--;
@@ -169,8 +177,8 @@ function spawnEnemy() {
   broadcast(message);
 }
 
-function addTower(event) {
-  map.towersAlive.push([event.x, event.y, event.type])
+function addTower(updatemessage) {
+  map.towersAlive.push([updatemessage.x, updatemessage.y, updatemessage.objectid])
 }
 
 function moveEnemies() {

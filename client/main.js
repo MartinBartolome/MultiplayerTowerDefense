@@ -1,12 +1,3 @@
-const messageType = {
-  REGISTER: 'register',
-  CHAT: 'chat',
-  GAMEUPDATE: 'gameupdate',
-  GAMESTART: 'gamestart',
-  GAMESTOP: 'gamestop',
-  SHOT: 'shot'
-};
-
 var websocketGame = {
   socket: {},
   playerID: '',
@@ -163,15 +154,11 @@ function startGame() {
       let playerName = this.playername.value;
       e.preventDefault(); //prevent page reload
       bindPreventPageReload();
-      let playerIdentifier = websocketGame.playerID;
+
       websocketGame.playerName = playerName;
-      /* console.log('info', playerName, playerIdentifier); */
-      let message = createMessage(messageType.REGISTER, {
-        playerIdentifier: playerIdentifier,
-        playerName: playerName
-      });
+      let message = new RegisterMessage(websocketGame);
       console.log(message);
-      websocketGame.socket.send(message);
+      websocketGame.socket.send(message.toStream());
       $('#div_Lobby').addClass('d-none');
       $('#div_Game').removeClass('d-none');
     }
@@ -198,7 +185,7 @@ function handleChatText() {
 function sendChatText() {
   let input = $('#input-chat').val();
   console.log('[SEND] chat text: ' + input);
-  let message = new window.ChatMessage(input);// DIESE KACKE FUNKTIONIERT NICHT!
+  let message = new window.ChatMessage(websocketGame,input);
   websocketGame.socket.send(message.toStream());
 
   $('#input-chat').val('');

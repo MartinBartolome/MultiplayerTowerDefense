@@ -1,18 +1,16 @@
 const Message = require('../Message')
 
-class ChatMessage extends Message.Message
+class RegisterMessage extends Message.Message
 {
-    constructor(text)
+    constructor()
     {
-        super(Message.MessageType.CHAT)
-        this.text = text;
+        super(Message.MessageType.REGISTER)
     }
 
     fromStream(stream)
     {
         this.stream = stream;
         var data = JSON.parse(stream);
-        this.text = data.text;
         this.playerID = data.playerID;
         this.playerName = data.playerName;
     }
@@ -20,17 +18,12 @@ class ChatMessage extends Message.Message
     toStream() {
         var data = {};
         data.messageType = this.messageType;
-        data.text = this.text;
         data.playerID = this.playerID;
         data.playerName = this.playerName;
         return JSON.stringify(data);
     }
-
-    getText() {
-        return this.text;
-    }
 }
 
 module.exports = {
-    ChatMessage : ChatMessage
+    RegisterMessage : RegisterMessage
 }
