@@ -1,10 +1,14 @@
 const WebSocket = require('ws');
 const Message = require('./communication/Message');
+const Level = require('./Game/Level/Level');
 const {ChatMessage} = require("./communication/ClientMessages/ChatMessage");
 const {RegisterMessage} = require("./communication/ClientMessages/RegisterMessage");
 const {GameUpdateMessage} = require("./communication/ClientMessages/GameUpdateMessage");
-const {GameStartMessage} = require("./communication/ServerMessages/GameStartMessage")
-const {GameStopMessage} = require("./communication/ServerMessages/GameStopMessage")
+const {GameStartMessage} = require("./communication/ServerMessages/GameStartMessage");
+const {GameStopMessage} = require("./communication/ServerMessages/GameStopMessage");
+const {LevelA} = require("./Game/Level/LevelA");
+const {LevelB} = require("./Game/Level/LevelB");
+const {LevelC} = require("./Game/Level/LevelC");
 
 const server = new WebSocket.Server({ port: 8080 });
 
@@ -147,7 +151,7 @@ async function gameLoop() {
       let message = new ChatMessage('LFG')
       gameStatus.started = true;
       broadcast(message);
-      let message2 = new GameStartMessage();
+      let message2 = new GameStartMessage(new LevelC());
       broadcast(message2);
     } else if (gameStatus.started) {
       if ((i + 1) % 3 == 0) {

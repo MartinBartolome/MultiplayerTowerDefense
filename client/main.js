@@ -84,6 +84,7 @@ function connect() {
               chatLogEntry(data);
               break;
             case messageType.GAMESTART:
+              SetLevel(data.Level);
               addCanvas();
               reset();
               gameLoop();
