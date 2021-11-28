@@ -198,9 +198,8 @@ function handleChatText() {
 function sendChatText() {
   let input = $('#input-chat').val();
   console.log('[SEND] chat text: ' + input);
-
-  let message = createMessage(messageType.CHAT, input);
-  websocketGame.socket.send(message);
+  let message = new window.ChatMessage(input);// DIESE KACKE FUNKTIONIERT NICHT!
+  websocketGame.socket.send(message.toStream());
 
   $('#input-chat').val('');
   // addChatText(input, false);
@@ -238,7 +237,7 @@ function addChatText(message, received) {
  * @param stream
  */
 function chatLogEntry(data) {
-  addChatText('[' + data.playerName + ']: ' + data['value'], true);
+  addChatText('[' + data.playerName + ']: ' + data.text, true);
 }
 
 /**
