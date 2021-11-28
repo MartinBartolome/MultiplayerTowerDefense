@@ -47,7 +47,7 @@ async function gameLoop() {
   while (1) {
     i++;
     if (websocketGame.running) {
-      main();
+      window.GameSession.main();
       // lets go
       /* render() */
       /* console.log(map); */
@@ -77,6 +77,8 @@ function connect() {
         /* console.log('[MESSAGE] Data received from server: ' + event.data); */
 
         try {
+          this.message = new window.Message();
+          this.message.fromStream(event.data);
           let data = JSON.parse(event.data);
           /* console.log('data', data, data['messageType']); */
           switch (data.messageType) {
@@ -84,8 +86,11 @@ function connect() {
               chatLogEntry(data);
               break;
             case messageType.GAMESTART:
-              SetLevel(data.Level);
-              addCanvas();
+              let gamestartmessage = new window.GameStartMessage();
+              gamestartmessage.fromStream(event.data);
+              window.GameSession = new GameSession();
+              window.GameSession.SetLevel(gamestartmessage.Level);
+              window.GameSession.addCanvas();
               reset();
               gameLoop();
               websocketGame.running = true;
@@ -132,7 +137,7 @@ function connect() {
 }
 
 function reset() {
-  handleGameExit();
+  window.GameSession.handleGameExit();
 }
 
 /**
