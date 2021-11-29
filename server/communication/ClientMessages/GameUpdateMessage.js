@@ -2,9 +2,13 @@ const Message = require('../Message')
 
 class GameUpdateMessage extends Message.Message
 {
-    constructor()
+    constructor(updateType,x,y,objectid)
     {
         super(Message.MessageType.GAMEUPDATE)
+        this.updateType = updateType;
+        this.x = x;
+        this.y = y;
+        this.objectid = objectid;
     }
 
     fromStream(stream)

@@ -7,8 +7,8 @@ const MessageType = Object.freeze({
   });
 
 const UpdateType = Object.freeze({
-    IRGENDWAS: 0,
-    NOCHIRGENDWAS: 1,
+    EnemyMoving: 0,
+    EnemySpawn: 1,
     AddTower: 2,
 });
 

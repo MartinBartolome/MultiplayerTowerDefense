@@ -96,7 +96,9 @@ function connect() {
               websocketGame.running = true;
               break;
             case messageType.GAMEUPDATE:
-              handleGameUpdate(data);
+              let gameupdatemessage = new window.GameUpdateMessage();
+              gameupdatemessage.fromStream(event.data);
+              window.GameSession.handleGameUpdate(gameupdatemessage);
               break;
             case messageType.SHOT:
               renderHit(data);

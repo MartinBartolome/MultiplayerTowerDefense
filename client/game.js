@@ -54,30 +54,6 @@ function generateBlock2dMatrix(n) {
   return a;
 }
 
-function handleGameUpdate(event) {
-  let x = event.value.x;
-  let y = event.value.y;
-  let type = event.value.type;
-  switch (event.value.updateType) {
-    case 0:
-      map.enemiesMoving = event.value.enemiesMoving;
-      render();
-      console.log(event.value.enemiesMoving)
-      // enemy moves
-      // handle moves
-      break;
-    case 1:
-      // enemy spawns
-      let hp = 100;
-      map.enemiesMoving.push([x, y, hp, type]);
-      break;
-    case 2:
-      // push tower
-      map.towersAlive.push([x, y, type]);
-      break;
-  }
-}
-
 function handleGameExit() {
   // reset everything to zero
   map.enemiesMoving = [];
@@ -126,19 +102,6 @@ tiles.onload = function () {
   tilesReady = true;
 };
 tiles.src = 'images/towerDefense_tilesheet.png';
-// The main game loop
-var main = function () {
-  var now = Date.now();
-  var delta = now - then;
-
-  // update(delta / 1000);
-  render();
-
-  then = now;
-
-  // Request to do this again ASAP
-  requestAnimationFrame(main);
-};
 
 // Cross-browser support for requestAnimationFrame
 var w = window;

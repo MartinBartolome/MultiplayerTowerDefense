@@ -52,7 +52,8 @@ class GameSession{
 
             // draw enemies
             for (var i = 0; i < this.Level.enemiesMoving.length; i++) {
-                let enemy = this.Level.enemiesMoving[i];
+                let enemy = new window.Enemy();
+                enemy.fromStream(this.Level.enemiesMoving[i]);
                 let tile = enemy[3];
                 if (tile !== 0) {
                     // 0 => empty tile
@@ -62,8 +63,8 @@ class GameSession{
                         Math.floor(tile / 23) * this.Level.tsize, // source y
                         this.Level.tsize, // source width
                         this.Level.tsize, // source height
-                        enemy[0] * this.Level.tsize, // target x
-                        enemy[1] * this.Level.tsize, // target y
+                        enemy.x * this.Level.tsize, // target x
+                        enemy.y * this.Level.tsize, // target y
                         this.Level.tsize, // target width
                         this.Level.tsize // target height
                     );
@@ -89,6 +90,29 @@ class GameSession{
                     );
                 }
             }
+        }
+    }
+
+    handleGameUpdate(gameupdatemessage) {
+        let x = gameupdatemessage.x;
+        let y = gameupdatemessage.y;
+        let type = gameupdatemessage.objectid;
+        switch (gameupdatemessage.updateType) {
+            case 0:
+                this.Level.enemiesMoving.push(x,y,type);
+                this.render();
+                console.log(gameupdatemessage.updateType)
+                // enemy moves
+                // handle moves
+                break;
+            case 1:
+                this.Level.enemiesMoving = gameupdatemessage.objectid;
+                this.render();
+                break;
+            case 2:
+                // push tower
+                this.Level.towersAlive.push([x, y, type]);
+                break;
         }
     }
 }
