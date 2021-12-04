@@ -8,7 +8,6 @@ function run()
   	Scoring();
     drawBackground();
     drawTowers();
-    player.special();
     drawMissiles();
     checkSpawn();
     getinfotour();

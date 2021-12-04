@@ -7,8 +7,6 @@ var Tower = function(type, range, x, y, damage, upgrade)
 	this.upgrade = upgrade;
 	this.damage = damage;
 	this.compteur = 0;
-	this.up = false;
-	this.destroy = false;
 	var img = new Image();
 	this.angle;
 	var ennemiProche = -1;
@@ -74,26 +72,4 @@ var Tower = function(type, range, x, y, damage, upgrade)
 		
         
 	};
-	this.upgrady = function(x,y){
-		if(x==this.x && y==this.y && player.up == true && this.upgrade < 3){
-    	    if(player.or >= (this.prix*2))
-    	    {
-    	      player.or -= (this.prix*2);
-    	      this.prix = (this.prix*2)+this.prix;
-    	      this.upgrade +=1;
-    	      player.up = false;
-    	      document.getElementById("upgrade").style.backgroundImage ="url('images/up.png')";
-    	    }
-    	}
-	};
-	this.destroyy = function(x,y,i)
-	{
-	  	if(x==this.x && y==this.y && player.destroy == true){
-  			player.or += (this.prix*0.5);
-  			towers.splice(i,1);
-  			player.destroy = false;
-			level[y][x]=2;
-			document.getElementById("destroy").style.backgroundImage ="url('images/down.png')";
-  		}
-  	};
 }

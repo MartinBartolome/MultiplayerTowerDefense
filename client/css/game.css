@@ -1,6 +1,6 @@
 html
 {
-	background: black;
+	background: white;
    	font: 1.1em sans-serif;
 }
 #interface
@@ -54,30 +54,6 @@ html
 {
 	background-image: url("../images/lancerover.png");
 
-}
-#upgrade
-{
-	background-image: url("../images/up.png");
-	height:80px;
-	width:80px;
-	margin: auto;
-	position: absolute;
-	top: 600px;
-	bottom: 0px;
-	left: 100px;
-	right: 0px;
-}
-#destroy
-{
-	background-image: url("../images/down.png");
-	height:80px;
-	width:80px;
-	margin: auto;
-	position: absolute;
-	top: 600px;
-	bottom: 0px;
-	left: 300px;
-	right: 0px;
 }
 #tower
 {
@@ -161,7 +137,7 @@ html
 	width:300px;
 	margin: auto;
 	position: absolute;
-	top: 200px;
+	top: 350px;
 	bottom: 0px;
 	left: 0px;
 	right: 850px;
@@ -173,7 +149,7 @@ html
 	width:230px;
 	margin: auto;
 	position: absolute;
-	top: 250px;
+	top: 380px;
 	bottom: 0px;
 	left: 0px;
 	right: 930px;

@@ -4,7 +4,6 @@ var Missile = function(x,y,angle,damage,type,sprite){
 	this.angle = angle;
 	this.damage = damage;
 	this.type = type;
-	this.freezy = freeze;
 	this.critical=false;
 	var img = new Image();
 

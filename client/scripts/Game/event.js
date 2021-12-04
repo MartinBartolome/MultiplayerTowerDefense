@@ -32,14 +32,4 @@ console.log(level[y][x]);
     GameUpdateMessage = new window.GameUpdateMessage(UpdateType.Tower,towers);
     websocketGame.socket.send(GameUpdateMessage.toStream());
   }
-  if(player.up == true || player.destroy == true)
-  {
-    for (var i = 0; i < towers.length; i++)
-    {
-      towers[i].upgrady(x,y);
-      towers[i].destroyy(x,y,i);
-    }
-    let GameUpdateMessage = new window.GameUpdateMessage(UpdateType.Tower,towers);
-    websocketGame.socket.send(GameUpdateMessage.toStream());
-  }
 }

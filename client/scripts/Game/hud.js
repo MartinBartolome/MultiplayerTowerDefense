@@ -24,10 +24,6 @@ function kk1()
   document.getElementById("tower").style.backgroundImage ="url('images/solbuttonover.png')";
   document.getElementById("tower2").style.backgroundImage ="url('images/airbutton.png')";
   document.getElementById("tower3").style.backgroundImage ="url('images/freezebutton.png')";
-  document.getElementById("destroy").style.backgroundImage ="url('images/down.png')";
-  document.getElementById("upgrade").style.backgroundImage ="url('images/up.png')";
-  player.destroy = false;
-  player.up = false;
 }
 function kk2()
 {
@@ -35,10 +31,6 @@ function kk2()
   document.getElementById("tower").style.backgroundImage ="url('images/solbutton.png')";
   document.getElementById("tower2").style.backgroundImage ="url('images/airbuttonover.png')";
   document.getElementById("tower3").style.backgroundImage ="url('images/freezebutton.png')";
-  document.getElementById("destroy").style.backgroundImage ="url('images/down.png')";
-  document.getElementById("upgrade").style.backgroundImage ="url('images/up.png')";
-  player.destroy = false;
-  player.up = false;
 }
 function kk3()
 {
@@ -46,33 +38,8 @@ function kk3()
   document.getElementById("tower").style.backgroundImage ="url('images/solbutton.png')";
   document.getElementById("tower2").style.backgroundImage ="url('images/airbutton.png')";
   document.getElementById("tower3").style.backgroundImage ="url('images/freezebuttonover.png')";
-  document.getElementById("destroy").style.backgroundImage ="url('images/down.png')";
-  document.getElementById("upgrade").style.backgroundImage ="url('images/up.png')";
-  player.destroy = false;
-  player.up = false;
 }
-function upgrading()
-{
-  document.getElementById("upgrade").style.backgroundImage ="url('images/upover.png')";
-  document.getElementById("destroy").style.backgroundImage ="url('images/down.png')";
-  document.getElementById("tower").style.backgroundImage ="url('images/solbutton.png')";
-  document.getElementById("tower2").style.backgroundImage ="url('images/airbutton.png')";
-  document.getElementById("tower3").style.backgroundImage ="url('images/freezebutton.png')";
-  player.selectedtower=0;
-  player.up = true;
-  player.destroy = false;
-}
-function destroying()
-{
-  document.getElementById("destroy").style.backgroundImage ="url('images/downover.png')";
-  document.getElementById("upgrade").style.backgroundImage ="url('images/up.png')";
-  document.getElementById("tower").style.backgroundImage ="url('images/solbutton.png')";
-  document.getElementById("tower2").style.backgroundImage ="url('images/airbutton.png')";
-  document.getElementById("tower3").style.backgroundImage ="url('images/freezebutton.png')";
-  player.selectedtower=0;
-  player.up = false;
-  player.destroy = true;
-}
+
 function Scoring()
 {
     var addLife = document.getElementById("vie")
@@ -80,9 +47,7 @@ function Scoring()
     var addOr = document.getElementById("or")
     addOr.innerHTML = "Or : " + player.or;
     var addVague = document.getElementById("vague")
-    //addVague.innerHTML = "Num&eacutero de vague : " + spawn.NumVague + " / 5";
-    var addtime = document.getElementById("temps")
-    addtime.innerHTML = (Math.floor(player.timing/60)) + " sec";
+    addVague.innerHTML = "Num&eacutero de vague : " + 1 + " / 5";
 }
 function Win()
 {
@@ -98,22 +63,7 @@ function Win()
     lose.style.display = "inline";
    }*/
 }
-function freezing()
-{
-  if(selected == false && player.timing != 0){
-     selected = true; 
-      player.time = true;
-  }
-  else{
-    selected=false;
-    player.time = false;
-  }
-}
 
-function retour()
-{
-  window.location.replace("membre.php");
-}
 function getinfotour()
 {
   if(player.selectedtower==1)
