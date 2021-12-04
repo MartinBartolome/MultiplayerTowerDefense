@@ -1,0 +1,700 @@
+html{
+   font: 1.1em sans-serif;
+}
+#menu
+{
+	background-image: url("../images/interface/HOME.png");
+	height:680px;
+	width:1200px;
+	margin: auto;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow: hidden;
+}
+#creditsbutton
+{
+	background-image: url("../images/interface/CREDITS.png");
+	height:100px;
+	width:264px;
+	margin: auto;
+	position: absolute;
+	top: 0px;
+	bottom: 50px;
+	left: 0px;
+	right: 600px;
+}
+#creditsbutton:hover
+{
+	background-image: url("../images/interface/CREDITSOVER.png");
+}
+#connectbutton
+{
+	background-image: url("../images/interface/connect.png");
+	height:181px;
+	width:325px;
+	margin: auto;
+	position: absolute;
+	top: 190px;
+	bottom: 0px;
+	left: 0px;
+	right: 600px;
+}       
+#connectbutton:hover
+{
+	background-image: url("../images/interface/connectover.png");
+}
+#registerbutton
+{
+	background-image: url("../images/interface/register.png");
+	height:133px;
+	width:252px;
+	margin: auto;
+	position: absolute;
+	top: 460px;
+	bottom: 0px;
+	left: 0px;
+	right: 600px;
+}  
+#registerbutton:hover
+{
+	background-image: url("../images/interface/registerover.png");
+}
+#connect
+{
+	background-image: url("../images/interface/panneau.png");
+	height:540px;
+	width:420px;
+	margin: auto;
+	position: absolute;
+	top: 1300px;
+	bottom: 0px;
+	left: 300px;
+	right: 0px;
+}
+.close
+{
+	background-image: url("../images/interface/close.png");
+	height:31px;
+	width:139px;
+	margin: auto;
+	position: absolute;
+	top: 150px;
+	bottom: 0px;
+	left: 0px;
+	right: 30px;
+}
+.close:hover
+{
+	background-image: url("../images/interface/closeover.png");
+}
+#formlogin
+{
+	height:300px;
+	width:300px;
+	margin: auto;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+#register
+{
+	background-image: url("../images/interface/panneau.png");
+	height:540px;
+	width:420px;
+	margin: auto;
+	position: absolute;
+	top: 1300px;
+	bottom: 0px;
+	left: 300px;
+	right: 0px;
+}
+#formregister
+{
+	height:300px;
+	width:300px;
+	margin: auto;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+#credits
+{
+	background-image: url("../images/interface/panneau.png");
+	height:540px;
+	width:420px;
+	margin: auto;
+	position: absolute;
+	top: 1300px;
+	bottom: 0px;
+	left: 300px;
+	right: 0px;
+}
+#textcredits
+{
+	height:540px;
+	width:420px;
+	margin: auto;
+	position: absolute;
+	top: 100px;
+	bottom: 0px;
+	left: 100px;
+	right: 0px;
+}
+#flag11
+{
+	background-image: url("../images/interface/flag.png");
+	height:57px;
+	width:40px;
+	margin: auto;
+	position: absolute;
+	top: 200px;
+	bottom: 0px;
+	left: 0px;
+	right: 600px;
+}
+#tflag11
+{
+	font: 16px sans-serif;
+	height:57px;
+	width:80px;
+	margin: auto;
+	position: absolute;
+	top: 180px;
+	bottom: 0px;
+	left: 0px;
+	right: 600px;
+}
+#flag22
+{
+	background-image: url("../images/interface/flag.png");
+	height:57px;
+	width:40px;
+	margin: auto;
+	position: absolute;
+	top: 250px;
+	bottom: 0px;
+	left: 0px;
+	right: 450px;
+}
+#tflag22
+{
+	font: 16px sans-serif;
+	height:57px;
+	width:80px;
+	margin: auto;
+	position: absolute;
+	top: 230px;
+	bottom: 0px;
+	left: 0px;
+	right: 450px;
+}
+#flag33
+{
+	background-image: url("../images/interface/flag.png");
+	height:57px;
+	width:40px;
+	margin: auto;
+	position: absolute;
+	top: 200px;
+	bottom: 0px;
+	left: 0px;
+	right: 150px;
+}
+#tflag33
+{
+	font: 16px sans-serif;
+	height:57px;
+	width:80px;
+	margin: auto;
+	position: absolute;
+	top: 180px;
+	bottom: 0px;
+	left: 0px;
+	right: 150px;
+}
+#flag44
+{
+	background-image: url("../images/interface/flag.png");
+	height:57px;
+	width:40px;
+	margin: auto;
+	position: absolute;
+	top: 140px;
+	bottom: 0px;
+	left: 0px;
+	right: 350px;
+}
+#tflag44
+{
+	font: 16px sans-serif;
+	height:57px;
+	width:80px;
+	margin: auto;
+	position: absolute;
+	top: 120px;
+	bottom: 0px;
+	left: 0px;
+	right: 350px;
+}
+#carte
+{
+	background-image: url("../images/interface/carte.png");
+	height:680px;
+	width:1200px;
+	margin: auto;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+#upgrade
+{
+	background-image: url("../images/up.png");
+	height:80px;
+	width:80px;
+	margin: auto;
+	position: absolute;
+	top: 280px;
+	bottom: 0px;
+	left: 150px;
+	right: 0px;
+}
+#upgrades
+{
+	height:600px;
+	width:900px;
+	margin: auto;
+	position: absolute;
+	top: 0px;
+	bottom: 1600px;
+	left: 0px;
+	right: 0px;
+}
+#retourmenu
+{
+	height:75px;
+	width:170px;
+	margin: auto;
+	position: absolute;
+	top: 300px;
+	bottom: 0px;
+	left: 0px;
+	right: 850px;
+}
+#background
+{
+	background-image: url("../images/interface/background.png");
+	height:900px;
+ 	width:900px;
+ 	margin: auto;
+ 	position: absolute;
+ 	top: 0px;
+ 	bottom: 0px;
+ 	left: 0px;
+ 	right: 0px;
+	
+}
+#bannere
+{
+	background-image: url('../images/interface/Bannere.png');
+	height:100px;
+ 	width:300px;
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -490px;
+ 	bottom: 0px;
+ 	left: 0px;
+ 	right: 0px;
+}
+.button
+{
+	background-image: url("../images/interface/button.png");
+ 	margin: auto;
+ 	position: absolute;
+ 	height: 35px;
+	width: 35px;
+	cursor: pointer;
+	
+}
+.tooltip:hover
+{
+	opacity: 0.6;
+	background-color: black;
+}
+#title1
+{
+	background-image: url("../images/interface/divers.png");
+	margin: auto;
+ 	position: absolute;
+ 	top: -290px;
+ 	bottom: 0px;
+ 	left: -375px;
+	right: 0px;
+	height: 60px;
+	width: 63px;
+}
+#title2
+{
+	background-image: url("../images/interface/givre.png");
+ 	margin: auto;
+ 	position: absolute;
+	top: -290px;
+ 	bottom: 0px;
+ 	left: 375px;
+ 	right: 0px;
+	height: 60px;
+	width: 63px;
+}
+#title3
+{
+	background-image: url("../images/interface/fire.png");
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -290px;
+ 	bottom: 0px;
+ 	left: 125px;
+ 	right: 0px;
+	height: 60px;
+	width: 63px;
+}
+#title4
+{
+	background-image: url("../images/interface/air.png");
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -290px;
+ 	bottom: 0px;
+ 	left: -125px;
+ 	right: 0px;
+	height: 60px;
+	width: 63px;
+}
+#divers1
+{
+	
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -150px;
+ 	bottom: 0px;
+ 	left: -370px;
+ 	right: 0px;
+	
+}
+#divers2
+{
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -10px;
+ 	bottom: 0px;
+ 	left: -370px;
+ 	right: 0px;
+
+}
+#divers3
+{
+ 	margin: auto;
+ 	position: absolute;
+ 	top: 130px;
+ 	bottom: 0px;
+ 	left: -370px;
+ 	right: 0px;
+}
+#divers4
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 270px;
+	 bottom: 0px;
+	 left: -370px;
+	 right: 0px;
+}
+#divers5
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 410px;
+	 bottom: 0px;
+	 left: -370px;
+	 right: 0px;
+}
+#givre1
+{
+	 margin: auto;
+	 position: absolute;
+	 top: -150px; 
+	 bottom: 0px;
+	 left: -120px;
+	 right: 0px;
+}
+#givre2
+{
+	 margin: auto;
+	 position: absolute;
+	 top: -10px; 
+	 bottom: 0px;
+	 left: -120px;	
+	 right: 0px;
+}
+#givre3
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 130px; 
+	 bottom: 0px;
+	 left: -120px;
+	 right: 0px;
+}
+#givre4
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 270px; 
+	 bottom: 0px;
+	 left: -120px;
+	 right: 0px;
+}
+#givre5
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 410px; 
+	 bottom: 0px;
+	 left: -120px;
+	 right: 0px;
+}
+#fire1
+{
+	 margin: auto;
+	 position: absolute;
+	 top: -150px;
+	 bottom: 0px;
+	 left: 130px;
+	 right: 0px;
+}
+#fire2
+{
+	 margin: auto;
+	 position: absolute;
+	 top: -10px;
+	 bottom: 0px;
+	 left: 130px;
+	 right: 0px;
+}
+#fire3
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 130px;
+	 bottom: 0px;
+	 left: 130px;
+	 right: 0px;
+}
+#fire4
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 270px;
+	 bottom: 0px;
+	 left: 130px;
+	 right: 0px;
+}
+#fire5
+{
+	 margin: auto;
+ 	position: absolute;
+ 	top: 410px;
+ 	bottom: 0px;
+ 	left: 130px;
+ 	right: 0px;
+}
+#air1
+{
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -150px;
+ 	bottom: 0px;
+ 	left: 380px;
+ 	right: 0px;
+}
+#air2
+{
+	 margin: auto;
+ 	position: absolute;
+ 	top: -10px;
+ 	bottom: 0px;
+ 	left: 380px;
+ 	right: 0px;
+}
+#air3
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 130px;
+	 bottom: 0px;
+	 left: 380px;
+	 right: 0px;
+}
+#air4
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 270px;
+ 	bottom: 0px;
+ 	left: 380px;
+ 	right: 0px;
+}
+#air5
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 410px;
+	 bottom: 0px;
+	 left: 380px;
+	 right: 0px;
+}
+#money
+{
+	background-image: url("../images/interface/money+.png");
+	width: 21px;
+	height: 23px;
+	margin-left: 7px;
+	margin-top: 6px;
+}
+#gold
+{
+	background-image: url("../images/interface/gold.png");
+	width: 22px;
+	height: 21px;
+	margin-left: 7px;
+	margin-top: 8px;
+}
+#life
+{
+	background-image: url("../images/interface/life.png");
+	width: 23px;
+	height: 21px;
+	margin-left: 6px;
+	margin-top: 7px;
+}
+#time
+{
+	background-image: url("../images/interface/time.png");
+	width: 14px;
+	height: 23px;
+	margin-left: 10px;
+	margin-top: 6px;
+}
+#timex2
+{
+	background-image: url("../images/interface/timex2.png");
+	width: 17px;
+	height: 23px;
+	margin-left: 9px;
+	margin-top: 6px;
+}
+.cout
+{
+	background-image: url("../images/interface/cout.png");
+	width: 21px;
+	height: 23px;
+	margin-left: 7px;
+	margin-top: 6px;
+}
+.range
+{
+	background-image: url("../images/interface/range.png");
+	width: 14px;
+	height: 22px;
+	margin-left: 10px;
+	margin-top: 7px;
+}
+.strength
+{
+	background-image: url("../images/interface/strength.png");
+	width: 22px;
+	height: 21px;
+	margin-left: 7px;
+	margin-top: 8px;
+}
+.speed
+{
+	background-image: url("../images/interface/speed.png");
+	width: 25px;
+	height: 14px;
+	margin-left: 5px;
+	margin-top: 10px;
+}
+#cc
+{
+	background-image: url("../images/interface/cc.png");
+	width: 22px;
+	height: 21px;
+	margin-left: 7px;
+	margin-top: 8px;
+}
+#freeze
+{
+	background-image: url("../images/interface/freeze.png");
+	width: 23px;
+	height: 22px;
+	margin-left: 6px;
+	margin-top: 8px;
+}
+#damage
+{
+	background-image: url("../images/interface/amage.png");
+	width: 21px;
+	height: 20px;
+	margin-left: 7px;
+	margin-top: 8px;
+}
+#init
+{
+	background-image: url("../images/interface/init.png");
+	width: 24px;
+	height: 14px;
+	margin-left: 6px;
+	margin-top: 10px;
+}
+#retour
+{
+	background-image: url("../images/interface/retour.png");
+	width: 125px;
+	height: 55px;
+	margin: auto;
+	position: absolute;
+	top: 680px; 
+	bottom: 0px;
+	left: 150px;
+	right: 0px;
+}
+#retour:hover
+{
+	cursor: pointer;
+	opacity: 0.6;
+}
+#done
+{
+	background-image: url("../images/interface/done.png");
+	width: 150px;
+	height: 55px;
+	margin: auto;
+	position: absolute;
+	top: 680px; 
+	bottom: 0px;
+	left: 450px;
+	right: 0px;
+}
+#done:hover
+{
+	cursor: pointer;
+	opacity: 0.6;
+}z

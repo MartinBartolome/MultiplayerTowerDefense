@@ -1,0 +1,414 @@
+body
+{
+	background-color: black;
+}
+#background
+{
+	background-color: black;
+	background-image: url(background.png);
+	height:900px;
+ 	width:900px;
+ 	margin: auto;
+ 	position: absolute;
+ 	top: 0px;
+ 	bottom: 0px;
+ 	left: 0px;
+ 	right: 0px;
+	
+}
+#bannere
+{
+	background-image: url(Bannere.png);
+	height:100px;
+ 	width:300px;
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -490px;
+ 	bottom: 0px;
+ 	left: 0px;
+ 	right: 0px;
+}
+.button
+{
+	background-image: url(button.png);
+ 	margin: auto;
+ 	position: absolute;
+ 	height: 35px;
+	width: 35px;
+	cursor: pointer;
+	
+}
+.tooltip:hover
+{
+	opacity: 0.6;
+	background-color: black;
+}
+#title1
+{
+	background-image: url(divers.png);
+	margin: auto;
+ 	position: absolute;
+ 	top: -290px;
+ 	bottom: 0px;
+ 	left: -375px;
+	right: 0px;
+	height: 60px;
+	width: 63px;
+}
+#title2
+{
+	background-image: url(givre.png);
+ 	margin: auto;
+ 	position: absolute;
+	top: -290px;
+ 	bottom: 0px;
+ 	left: 375px;
+ 	right: 0px;
+	height: 60px;
+	width: 63px;
+}
+#title3
+{
+	background-image: url(fire.png);
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -290px;
+ 	bottom: 0px;
+ 	left: 125px;
+ 	right: 0px;
+	height: 60px;
+	width: 63px;
+}
+#title4
+{
+	background-image: url(air.png);
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -290px;
+ 	bottom: 0px;
+ 	left: -125px;
+ 	right: 0px;
+	height: 60px;
+	width: 63px;
+}
+#divers1
+{
+	
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -150px;
+ 	bottom: 0px;
+ 	left: -370px;
+ 	right: 0px;
+	
+}
+#divers2
+{
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -10px;
+ 	bottom: 0px;
+ 	left: -370px;
+ 	right: 0px;
+
+}
+#divers3
+{
+ 	margin: auto;
+ 	position: absolute;
+ 	top: 130px;
+ 	bottom: 0px;
+ 	left: -370px;
+ 	right: 0px;
+}
+#divers4
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 270px;
+	 bottom: 0px;
+	 left: -370px;
+	 right: 0px;
+}
+#divers5
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 410px;
+	 bottom: 0px;
+	 left: -370px;
+	 right: 0px;
+}
+#givre1
+{
+	 margin: auto;
+	 position: absolute;
+	 top: -150px; 
+	 bottom: 0px;
+	 left: -120px;
+	 right: 0px;
+}
+#givre2
+{
+	 margin: auto;
+	 position: absolute;
+	 top: -10px; 
+	 bottom: 0px;
+	 left: -120px;	
+	 right: 0px;
+}
+#givre3
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 130px; 
+	 bottom: 0px;
+	 left: -120px;
+	 right: 0px;
+}
+#givre4
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 270px; 
+	 bottom: 0px;
+	 left: -120px;
+	 right: 0px;
+}
+#givre5
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 410px; 
+	 bottom: 0px;
+	 left: -120px;
+	 right: 0px;
+}
+#fire1
+{
+	 margin: auto;
+	 position: absolute;
+	 top: -150px;
+	 bottom: 0px;
+	 left: 130px;
+	 right: 0px;
+}
+#fire2
+{
+	 margin: auto;
+	 position: absolute;
+	 top: -10px;
+	 bottom: 0px;
+	 left: 130px;
+	 right: 0px;
+}
+#fire3
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 130px;
+	 bottom: 0px;
+	 left: 130px;
+	 right: 0px;
+}
+#fire4
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 270px;
+	 bottom: 0px;
+	 left: 130px;
+	 right: 0px;
+}
+#fire5
+{
+	 margin: auto;
+ 	position: absolute;
+ 	top: 410px;
+ 	bottom: 0px;
+ 	left: 130px;
+ 	right: 0px;
+}
+#air1
+{
+ 	margin: auto;
+ 	position: absolute;
+ 	top: -150px;
+ 	bottom: 0px;
+ 	left: 380px;
+ 	right: 0px;
+}
+#air2
+{
+	 margin: auto;
+ 	position: absolute;
+ 	top: -10px;
+ 	bottom: 0px;
+ 	left: 380px;
+ 	right: 0px;
+}
+#air3
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 130px;
+	 bottom: 0px;
+	 left: 380px;
+	 right: 0px;
+}
+#air4
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 270px;
+ 	bottom: 0px;
+ 	left: 380px;
+ 	right: 0px;
+}
+#air5
+{
+	 margin: auto;
+	 position: absolute;
+	 top: 410px;
+	 bottom: 0px;
+	 left: 380px;
+	 right: 0px;
+}
+#money
+{
+	background-image: url(money+.png);
+	width: 21px;
+	height: 23px;
+	margin-left: 7px;
+	margin-top: 6px;
+}
+#gold
+{
+	background-image: url(gold.png);
+	width: 22px;
+	height: 21px;
+	margin-left: 7px;
+	margin-top: 8px;
+}
+#life
+{
+	background-image: url(life.png);
+	width: 23px;
+	height: 21px;
+	margin-left: 6px;
+	margin-top: 7px;
+}
+#time
+{
+	background-image: url(time.png);
+	width: 14px;
+	height: 23px;
+	margin-left: 10px;
+	margin-top: 6px;
+}
+#timex2
+{
+	background-image: url(timex2.png);
+	width: 17px;
+	height: 23px;
+	margin-left: 9px;
+	margin-top: 6px;
+}
+.cout
+{
+	background-image: url(cout.png);
+	width: 21px;
+	height: 23px;
+	margin-left: 7px;
+	margin-top: 6px;
+}
+.range
+{
+	background-image: url(range.png);
+	width: 14px;
+	height: 22px;
+	margin-left: 10px;
+	margin-top: 7px;
+}
+.strength
+{
+	background-image: url(strength.png);
+	width: 22px;
+	height: 21px;
+	margin-left: 7px;
+	margin-top: 8px;
+}
+.speed
+{
+	background-image: url(speed.png);
+	width: 25px;
+	height: 14px;
+	margin-left: 5px;
+	margin-top: 10px;
+}
+#cc
+{
+	background-image: url(cc.png);
+	width: 22px;
+	height: 21px;
+	margin-left: 7px;
+	margin-top: 8px;
+}
+#freeze
+{
+	background-image: url(freeze.png);
+	width: 23px;
+	height: 22px;
+	margin-left: 6px;
+	margin-top: 8px;
+}
+#damage
+{
+	background-image: url(damage.png);
+	width: 21px;
+	height: 20px;
+	margin-left: 7px;
+	margin-top: 8px;
+}
+#init
+{
+	background-image: url(init.png);
+	width: 24px;
+	height: 14px;
+	margin-left: 6px;
+	margin-top: 10px;
+}
+#retour
+{
+	background-image: url(retour.png);
+	width: 125px;
+	height: 55px;
+	margin: auto;
+	position: absolute;
+	top: 680px; 
+	bottom: 0px;
+	left: 150px;
+	right: 0px;
+}
+#retour:hover
+{
+	cursor: pointer;
+	opacity: 0.6;
+}
+#done
+{
+	background-image: url(done.png);
+	width: 150px;
+	height: 55px;
+	margin: auto;
+	position: absolute;
+	top: 680px; 
+	bottom: 0px;
+	left: 450px;
+	right: 0px;
+}
+#done:hover
+{
+	cursor: pointer;
+	opacity: 0.6;
+}z
