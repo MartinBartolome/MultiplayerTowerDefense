@@ -6,111 +6,143 @@ const WebSocket = require("ws");
 class Game{
 
     constructor(Server, Level) {
-        this.runningLevel = Level;
-        this.Enemys = [];
+        this.level = Level.level;
+        this.lvl = Level.lvl;
+        this.wave = [];
         this.Towers = [];
         this.server = Server;
+
+        this.canSpawn = false;
+        this.NumVague = 0;
+        this.nbUnitParVague = 0;
+        this.nbVagueTotal;
+        this.nbUnit = 0;
     }
+
+
     Tick(i)
     {
         if ((i + 1) % 3 == 0) {
             //this.shoot();
         }
-        if (i % 4 == 0) {
-            this.spawnEnemy();
+        if (i % 2 == 0) {
+            this.spawner();
         }
         //this.moveEnemies();
     }
-    spawnEnemy() {
-        let topRow = this.runningLevel.walkway[0];
-        let x = topRow.indexOf(1);
-        let y = 0;
-        let enemy = new Enemy(x,y,100,247);
-        this.Enemys.push(enemy)
-        let message = new GameUpdateMessage(Message.UpdateType.EnemySpawn,0,0,this.Enemys)
-        this.broadcast(message);
+    forceNextWave()
+    {
+        this.canSpawn = true;
+        this.NumVague+=1;
     }
 
-    addTower(updatemessage) {
-        this.Level.towersAlive.push([updatemessage.x, updatemessage.y, updatemessage.objectid])
-    }
-
-    moveEnemies() {
-        this.Level.enemiesMoving.forEach(enemy => {
-            if (
-                enemy[1] == 0 ||
-                enemy[1] == 1 ||
-                enemy[1] == 3 ||
-                enemy[1] == 4 ||
-                enemy[1] == 5 ||
-                enemy[1] == 7 ||
-                enemy[1] == 9 ||
-                enemy[1] == 10 ||
-                (enemy[1] == 2 && enemy[0] == 2) ||
-                (enemy[1] == 6 && enemy[0] == 4) ||
-                (enemy[1] == 8 && enemy[0] == 5) ||
-                enemy[1] == 11
-            ) {
-                enemy[1]++;
-            } else if (enemy[1] == 2 && enemy[0] == 3) {
-                enemy[0]--;
-            } else if (
-                (enemy[1] == 6 && enemy[0] == 2) ||
-                (enemy[1] == 6 && enemy[0] == 3) ||
-                (enemy[1] == 8 && enemy[0] == 4)
-            ) {
-                enemy[0]++;
-            }
-            if (enemy[1] == 12) {
-                // lost game!
-                console.log('you lost!');
-                this.Level.enemiesMoving.shift();
-            }
-        });
-        let message = new GameUpdateMessage(Message.UpdateType.EnemyMoving,0,0,0);
-        broadcast(message)
-    }
-    shoot() {
-        console.log('shot', this.Level.towersAlive)
-        for (var i = 0; i < this.Level.towersAlive.length; i++) {
-            var activeTower = this.Level.towersAlive[i];
-            if (this.Level.enemiesMoving.length != 0) {
-                let activeEnemy = map.enemiesMoving[0];
-                activeEnemy[2] = activeEnemy[2] - calculateShot(activeTower, activeEnemy[2]);
-                // create message and broadcast it
-                if (activeEnemy[2] <= 0) {
-                    this.Level.enemiesMoving.shift();
+    spawner()
+    {
+        for (var i = 0; i < this.level.length; i++)
+        {
+            for (var j = 0; j < this.level[i].length; j++)
+            {
+                if (this.level[i][j] == 3 && this.canSpawn == true)
+                {
+                    if(this.lvl==1)
+                    {
+                        this.nbVagueTotal = 5;
+                        if(this.NumVague==1){
+                            this.nbUnitParVague = 4;
+                            this.ennemiSpawn(j*30+15,i*30,100,1,"sol",'./images/eclaireur.png',"peon",2,800);
+                            setTimeout('this.ennemiSpawn(' +(j*30+15)+ ',' +(i*30+15)+ ',' +100+ ',' +1+ ',"sol","./images/ecuyer.png","peon",' +2+ ',' +800+ ')', 1800);
+                        }
+                        if(this.NumVague==2){
+                            this.nbUnitParVague = 5;
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/eclaireur.png',"peon",5,800);
+                        }
+                        if(this.NumVague==3){
+                            this.nbUnitParVague = 5;
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol","./images/soldat.png","soldat",5,800);
+                        }
+                        if(this.NumVague==4){
+                            this.nbUnitParVague = 5;
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/knight.png',"chevalier",5,800);
+                        }
+                        if(this.NumVague==5){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"chevalier",5,800);
+                        }
+                    }
+                    if(this.lvl==2){
+                        this.nbVagueTotal = 5;
+                        if(this.NumVague==1){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/eclaireur.png',"peon",5,800);
+                        }
+                        if(this.NumVague==2){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/soldat.png',"soldat",5,800);
+                        }
+                        if(this.NumVague==3){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/knight.png',"peon",6,800);
+                        }
+                        if(this.NumVague==4){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"chevalier",3,800);
+                        }
+                        if(this.NumVague==5){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"chevalier",6,800);
+                        }
+                    }
+                    if(this.lvl==3){
+                        this.nbVagueTotal = 5;
+                        if(this.NumVague==1){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/eclaireur.png',"peon",5,800);
+                        }
+                        if(this.NumVague==2){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"air",'./images/eclaireur.png',"peon",5,800);
+                        }
+                        if(this.NumVague==3){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"peon",5,800);
+                        }
+                        if(this.NumVague==4){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"peon",5,800);
+                        }
+                        if(this.NumVague==5){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"peon",5,800);
+                        }
+                    }
+                    if(this.lvl==4){
+                        this.nbVagueTotal = 5;
+                        if(this.NumVague==1){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/eclaireur.png',"peon",5,800);
+                        }
+                        if(this.NumVague==2){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"air",'./images/eclaireur.png',"peon",5,800);
+                        }
+                        if(this.NumVague==3){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"peon",5,800);
+                        }
+                        if(this.NumVague==4){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"peon",5,800);
+                        }
+                        if(this.NumVague==5){
+                            this.ennemiSpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"peon",5,800);
+                        }
+                    }
                 }
             }
         }
     }
-
-    calculateShot(tower, activeEnemyHp) {
-        console.log("calculating shot")
-        let enemy = this.Level.enemiesMoving[0];
-        let diffX = Math.abs(tower[0] - enemy[0]);
-        let diffY = Math.abs(tower[1] - enemy[1]);
-        let distance = Math.sqrt(diffX * diffX + diffY * diffY) + 1;
-        let randomNumber = Math.floor(Math.random() * 17); // zwischen 1 und 17 // 15.5 ist max
-        if (distance < randomNumber) {
-            // here, we can also adjust difficulty
-            // if hit, send message already here
-            let value = {
-                enemyX: enemy[0],
-                enemyY: enemy[1],
-                enemyHp: activeEnemyHp,
-                towerX: tower[0],
-                towerY: tower[1]
-            };
-            let message = createMessage(Message.MessageType.SHOT, value);
-            broadcast(message);
-            console.log('hit: ', 50 / distance);
-            return 50 / distance;
-        } else {
-            console.log('miss');
-            return 0;
+    ennemiSpawn(x, y, pv, speed, type, sprite, genre,nbUnitParVague,intervalEntreEnnemi)
+    {
+        let enemy = new Enemy(x, y, pv, speed, type, sprite, genre);
+        this.wave.push(enemy);
+        this.nbUnit++;
+        if (this.nbUnit >= nbUnitParVague)
+        {
+            this.nbUnit = 0;
+            this.canSpawn = false;
         }
-    }
+        else
+        {
+            let message2 = new GameUpdateMessage(Message.UpdateType.Wave,enemy);
+            this.broadcast(message2);
+        }
+    };
+
     broadcast(data) {
         this.server.clients.forEach(client => {
             if (client.readyState === WebSocket.OPEN) {

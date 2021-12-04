@@ -10,6 +10,7 @@ const {LevelA} = require("./Game/Level/LevelA");
 const {LevelB} = require("./Game/Level/LevelB");
 const {LevelC} = require("./Game/Level/LevelC");
 const {Game} = require("./Game/Game");
+const {UpdateType} = require("./communication/Message");
 
 const server = new WebSocket.Server({ port: 8080 });
 
@@ -49,10 +50,14 @@ server.on('connection', socket => {
         case Message.MessageType.GAMEUPDATE:
           let updatemessage = new GameUpdateMessage();
           updatemessage.fromStream(event.data);
-          if (updatemessage.updateType == Message.UpdateType.AddTower) {
-            addTower(updatemessage);
+          if(updatemessage.updateType == UpdateType.Tower)
+          {
+            broadcast(updatemessage);
           }
-          broadcast(updatemessage);
+          if(updatemessage.updateType == UpdateType.Wave)
+          {
+            gameStatus.canSpawn = true;
+          }
           break;
         default:
           console.log("[MESSAGE.WARNING] Client doesn't expect this message: " + data);
@@ -94,7 +99,8 @@ var gameStatus = {
   registeredPlayers: new Map(),
   countdown: 3,
   countdownStarted: false,
-  started: false
+  started: false,
+  canSpawn: false
 };
 
 async function gameLoop() {
@@ -115,13 +121,19 @@ async function gameLoop() {
       gameStatus.countdown--;
     } else if (gameStatus.countdown == 0 && !gameStatus.started) {
       let message = new ChatMessage('LFG')
+      message.playerName = 'Server';
       gameStatus.started = true;
       broadcast(message);
-      let message2 = new GameStartMessage(new LevelA());
-      this.Game = new Game(server,new LevelA());
+      let message2 = new GameStartMessage(new LevelB());
+      this.Game = new Game(server,new LevelB());
       broadcast(message2);
     } else if (gameStatus.started) {
       this.Game.Tick(i);
+      if(gameStatus.canSpawn)
+      {
+        this.Game.forceNextWave();
+        gameStatus.canSpawn = false;
+      }
     }
     await sleep(1000);
   }

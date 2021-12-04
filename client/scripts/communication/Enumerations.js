@@ -3,15 +3,15 @@ const messageType = Object.freeze({
     CHAT: 'chat',
     GAMEUPDATE: 'gameupdate',
     GAMESTART: 'gamestart',
-    GAMESTOP: 'gamestop',
-    SHOT: 'shot'
+    GAMESTOP: 'gamestop'
 });
 window.messageType = messageType;
 
 const UpdateType = Object.freeze({
-    EnemyMoving: 0,
-    EnemySpawn: 1,
-    AddTower: 2,
+    Tower: 0,
+    Level: 1,
+    Player: 2,
+    Wave: 3
 });
 
 window.UpdateType = UpdateType;

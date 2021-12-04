@@ -7,9 +7,10 @@ const MessageType = Object.freeze({
   });
 
 const UpdateType = Object.freeze({
-    EnemyMoving: 0,
-    EnemySpawn: 1,
-    AddTower: 2,
+    Tower: 0,
+    Level: 1,
+    Player: 2,
+    Wave: 3
 });
 
 class Message{

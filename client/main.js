@@ -5,9 +5,9 @@ var websocketGame = {
   quit: false,
   running: true
 };
-
+var playercount = 0;
 // init script when the DOM is ready.
-
+var level = [];
 $(function () {
   connect();
   validatePlayerName();
@@ -47,12 +47,12 @@ async function gameLoop() {
   while (1) {
     i++;
     if (websocketGame.running) {
-      window.GameSession.main();
+      run();
       // lets go
       /* render() */
       /* console.log(map); */
     }
-    await sleep(1000);
+    await sleep(10000);
   }
 }
 /**
@@ -88,17 +88,45 @@ function connect() {
             case messageType.GAMESTART:
               let gamestartmessage = new window.GameStartMessage();
               gamestartmessage.fromStream(event.data);
-              window.GameSession = new GameSession();
-              window.GameSession.SetLevel(gamestartmessage.Level);
-              window.GameSession.addCanvas();
-              reset();
+              level = [];
+              level = gamestartmessage.Level.level;
               gameLoop();
               websocketGame.running = true;
               break;
             case messageType.GAMEUPDATE:
               let gameupdatemessage = new window.GameUpdateMessage();
               gameupdatemessage.fromStream(event.data);
-              window.GameSession.handleGameUpdate(gameupdatemessage);
+              if(gameupdatemessage.updateType == UpdateType.Tower)
+              {
+                towers = [];
+                for (var y = 0; y < gameupdatemessage.UpdateObject.length; y++) {
+                  towers.push(
+                      new Tower(gameupdatemessage.UpdateObject[y].type,
+                          gameupdatemessage.UpdateObject[y].range,
+                          gameupdatemessage.UpdateObject[y].x,
+                          gameupdatemessage.UpdateObject[y].y,
+                          gameupdatemessage.UpdateObject[y].damage,
+                          gameupdatemessage.UpdateObject[y].upgrade));
+                }
+              }
+              if(gameupdatemessage.updateType == UpdateType.Level)
+              {
+              }
+              if(gameupdatemessage.updateType == UpdateType.Player)
+              {
+              }
+              if(gameupdatemessage.updateType == UpdateType.Wave)
+              {
+                  wave.push(
+                      new Enemy(gameupdatemessage.UpdateObject.x,
+                          gameupdatemessage.UpdateObject.y,
+                          gameupdatemessage.UpdateObject.pv,
+                          gameupdatemessage.UpdateObject.speed,
+                          gameupdatemessage.UpdateObject.type,
+                          gameupdatemessage.UpdateObject.sprite,
+                          gameupdatemessage.UpdateObject.genre));
+
+              }
               break;
             case messageType.SHOT:
               renderHit(data);
@@ -162,6 +190,11 @@ function startGame() {
 
       websocketGame.playerName = playerName;
       let message = new RegisterMessage(websocketGame);
+      if(playercount == 0)
+      {
+
+      }
+
       console.log(message);
       websocketGame.socket.send(message.toStream());
       $('#div_Lobby').addClass('d-none');
