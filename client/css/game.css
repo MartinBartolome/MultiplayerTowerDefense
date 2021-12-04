@@ -91,23 +91,6 @@ html
 	left: 0px;
 	right: 100px;
 }
-#freeze
-{
-	background-image: url("../images/chrono.png");
-	height:150px;
-	width:127px;
-	margin: auto;
-	position: absolute;
-	top: 0px;
-	bottom: 350px;
-	left: 0px;
-	right: 1050px;
-}
-#freeze:hover
-{
-	background-image: url("../images/chronoover.png");
-
-}
 #temps
 {
 	font: 30px sans-serif;
