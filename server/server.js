@@ -104,7 +104,7 @@ var gameStatus = {
 };
 
 async function gameLoop() {
-  // das ist der haupt loop
+  // this is the main loop
   let i = 0;
   while (1) {
     i++;

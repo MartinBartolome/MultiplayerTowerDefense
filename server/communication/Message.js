@@ -13,7 +13,7 @@ const UpdateType = Object.freeze({
     Wave: 3
 });
 
-class Message{
+class Message {
     constructor(messageType)
     {
         this.messageType = messageType;

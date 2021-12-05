@@ -5,9 +5,9 @@ class Enemy
         this.genre = genre;
         this.x = x;
         this.y = y;
-        this.tableIndex = Math.floor((x)/30);  //numero de l'index du tableau representant le niveau(prototype)
-        this.tableData = Math.floor((y)/30);     //numero de la donnée de ce tableau
-        this.path = []; //tableau representant le chemin deja parcouru
+        this.tableIndex = Math.floor((x)/30);  // Overall data indexes
+        this.tableData = Math.floor((y)/30);     // Overall data
+        this.path = []; // Overall board
         this.speed = (speed*this.freezy);
         this.pv = pv;
         this.colorpv = "green";

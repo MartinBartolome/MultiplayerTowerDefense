@@ -229,11 +229,9 @@ function sendChatText() {
   $('#input-chat').val('');
   // addChatText(input, false);
 }
-/**
- * Add sent chat text to chatbox, that means create a div-element for a card
- * https://stackoverflow.com/questions/40520564/create-divs-with-different-classes-and-append-jquery-dynamically
- * https://stackoverflow.com/questions/40903462/how-to-keep-a-scrollbar-always-bottom
- */
+
+// Add sent chat text to chatbox, that means create a div-element for a card
+
 function addChatText(message, received) {
   let divcard = $('<div/>', {
     class: 'chatcard'
@@ -271,11 +269,9 @@ function chatLogEntry(data) {
 function bindPreventPageReload() {
   window.addEventListener('beforeunload', preventPageReload);
 }
-/**
- * Show standard message if user wants to reload browser page
- * https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload
- * @param e
- */
+
+// Show standard message if user wants to reload browser page
+
 function preventPageReload(e) {
   // Cancel the event
   e.preventDefault(); // If you prevent default behavior in Mozilla Firefox prompt will always be shown

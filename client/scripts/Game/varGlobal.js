@@ -1,6 +1,4 @@
-/*******************************************************************************
-*Variables de definition pour les canvas
-********************************************************************************/
+/* Vars for Canvas */
 var canvas,
     context,
     elem          = document.getElementById("canvas"),
@@ -10,9 +8,7 @@ var canvas,
     frameCount    = 0,
     nbUnit        = 0;
     lvl=1;
-/*******************************************************************************
-*Variable des ennemis
-********************************************************************************/
+/* Vars for Enemies */
 var wave     = [],
     missiles = [],
     towers   = [];

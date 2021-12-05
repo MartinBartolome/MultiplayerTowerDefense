@@ -1,4 +1,3 @@
-//pour le clic du player ! 
 canvas.onclick= function(ev)
 {
   var x = Math.floor(ev.offsetX / 30);
@@ -14,7 +13,6 @@ console.log(level[y][x]);
     }
     if(player.selectedtower==2 && player.or >= 50)
     {
-
       level[y][x] =5;
       player.or-=50;
       towers.push(new Tower("air", 200, x, y,50,1));
