@@ -88,7 +88,7 @@ html{
 }
 .close:hover
 {
-	background-image: url("../images/interface/closeover.png");
+	background-image: url("../images/interface/clooseover.png");
 }
 #formlogin
 {
@@ -302,9 +302,9 @@ html{
  	right: 0px;
 	
 }
-#bannere
+#banner
 {
-	background-image: url('../images/interface/Bannere.png');
+	background-image: url('../images/interface/banner.png');
 	height:100px;
  	width:300px;
  	margin: auto;

@@ -3,11 +3,11 @@ function nextWaveForced()
 {
     let GameUpdateMessage = new window.GameUpdateMessage(UpdateType.Wave);
     websocketGame.socket.send(GameUpdateMessage.toStream());
-    player.or += (1*20);
+    player.geld += (1*20);
 }
 function checkSpawn()
   {
-      /*if((wave.length == 0) || (wave.length == spawn.nbUnitParVague))
+      /*if((wave.length == 0) || (wave.length == spawn.nbUnitProWelle))
       {
         document.getElementById("buttonspawn").style.display = "inline";
       }
@@ -42,40 +42,40 @@ function kk3()
 
 function Scoring()
 {
-    var addLife = document.getElementById("vie")
-    addLife.innerHTML = "Vies : " + player.vie;
-    var addOr = document.getElementById("or")
-    addOr.innerHTML = "Or : " + player.or;
-    var addVague = document.getElementById("vague")
-    addVague.innerHTML = "Num&eacutero de vague : " + 1 + " / 5";
+    var addLife = document.getElementById("leben")
+    addLife.innerHTML = "lebens : " + player.leben;
+    var addgeld = document.getElementById("geld")
+    addgeld.innerHTML = "geld : " + player.geld;
+    var addWelle = document.getElementById("welle")
+    addWelle.innerHTML = "Welle : " + 1 + " / 5";
 }
 function Win()
 {
-  /*if(spawn.NumVague == spawn.nbVagueTotal){
+  /*if(spawn.NumWelle == spawn.nbWelleTotal){
     var nospawn = document.getElementById("buttonspawn")
     nospawn.style.display = "none";
    }
-   if(spawn.NumVague == (spawn.nbVagueTotal) && player.vie >= 1){
+   if(spawn.NumWelle == (spawn.nbWelleTotal) && player.leben >= 1){
     document.getElementById("win").style.display = "inline";
    }
-   if(player.vie <= 0){
-    var lose = document.getElementById("lose")
-    lose.style.display = "inline";
+   if(player.leben <= 0){
+    var loose = document.getElementById("loose")
+    loose.style.display = "inline";
    }*/
 }
 
-function getinfotour()
+function getinfobox()
 {
   if(player.selectedtower==1)
   {
-    document.getElementById("infotour").innerHTML = "Type de tour : Terrestre <br>Cout d'achat la tour au Niveau 1 : 50 Or <br>Cout d'upgrade de la tour vers le Niveau 2 : 100 Or <br>Cout d'upgrade de la tour vers le Niveau 3 : 200 Or ";
+    document.getElementById("infobox").innerHTML = "Art des Turms : Land <br>Kaufpreis: 50 Geld";
   }
   if(player.selectedtower==2)
   {
-    document.getElementById("infotour").innerHTML = "Type de tour : A&eacuterienne <br>Cout d'achat la tour au Niveau 1 : 50 Or <br>Cout d'upgrade de la tour vers le Niveau 2 : 100 Or <br>Cout d'upgrade de la tour vers le Niveau 3 : 200 Or ";
+    document.getElementById("infobox").innerHTML = "Art des Turms : Luft <br>Kaufpreis : 50 geld";
   }
   if(player.selectedtower==3)
   {
-    document.getElementById("infotour").innerHTML = "Type de tour : Ralentisseuse<br>Cout d'achat la tour au Niveau 1 : 50 Or <br>Cout d'upgrade de la tour vers le Niveau 2 : 100 Or <br>Cout d'upgrade de la tour vers le Niveau 3 : 200 Or ";
+    document.getElementById("infobox").innerHTML = "Art des Turms : Eis<br>Kaufpreis : 50 geld";
   }
 }

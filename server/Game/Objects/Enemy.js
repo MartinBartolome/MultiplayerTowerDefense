@@ -5,8 +5,8 @@ class Enemy
         this.genre = genre;
         this.x = x;
         this.y = y;
-        this.tableIndex = Math.floor((x)/30);  // Overall data indexes
-        this.tableData = Math.floor((y)/30);     // Overall data
+        this.tableIndex = Math.floor((x)/30);
+        this.tableData = Math.floor((y)/30);
         this.path = []; // Overall board
         this.speed = (speed*this.freezy);
         this.pv = pv;

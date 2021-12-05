@@ -15,7 +15,7 @@ html
 	left: 0px;
 	right: 0px;
 }
-#cachemisere
+#wrapper
 {
 	height:580px;
 	width:1200px;
@@ -103,17 +103,6 @@ html
 	left: 0px;
 	right: 800px;
 }
-#retourmenu
-{
-	height:75px;
-	width:170px;
-	margin: auto;
-	position: absolute;
-	top: 600px;
-	bottom: 0px;
-	left: 0px;
-	right: 950px;
-}
 #info
 {
 	height:300px;
@@ -125,7 +114,7 @@ html
 	left: 0px;
 	right: 850px;
 }
-#infotour
+#infobox
 {
 	border:solid black 2px;
 	height:200px;
@@ -150,7 +139,7 @@ html
 	display: none;
 	color:black;
 }
-#lose{
+#loose{
 	background-color:red;
 	height:900px;
 	width:900px;

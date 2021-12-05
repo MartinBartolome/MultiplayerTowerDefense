@@ -1,13 +1,12 @@
-//On construit notre objet enemy
 function Enemy(x, y, pv, speed, type, sprite, genre)
 {
     this.freezy = 1;
     this.genre = genre;
     this.x = x;
     this.y = y;
-    this.tableIndex = Math.floor((x)/30);  //numero de l'index du tableau representant le niveau(prototype)
-    this.tableData = Math.floor((y)/30);     //numero de la donnée de ce tableau
-    this.path = []; //tableau representant le chemin deja parcouru
+    this.tableIndex = Math.floor((x)/30);
+    this.tableData = Math.floor((y)/30);
+    this.path = [];
     this.speed = (speed*this.freezy);
     this.pv = pv;
     this.colorpv = "green";
@@ -20,7 +19,6 @@ function Enemy(x, y, pv, speed, type, sprite, genre)
     var spritelol = 32;
     var spriteigloo = 65;
     var frameSpriteSheet = 0;
-    //On enregistre le chemin de notre enemy dans le tableau path
     for (var i = 0; i < level.length; i++)
     {
         this.path[i] = [];
@@ -37,39 +35,35 @@ function Enemy(x, y, pv, speed, type, sprite, genre)
                 if (this.pv <= 25){
                     context.strokeRect(this.x-15, this.y-40, savepv/4, 5);
                     this.colorpv="red";
-                    context.fillStyle = this.colorpv; 
+                    context.fillStyle = this.colorpv;
                     context.fillRect(this.x-15, this.y-40, this.pv/4, 3);
                 }
                 else if(this.pv <= 50){
                     context.strokeRect(this.x-15, this.y-40, savepv/4, 5);
                     this.colorpv="yellow";
-                    context.fillStyle = this.colorpv; 
+                    context.fillStyle = this.colorpv;
                     context.fillRect(this.x-15, this.y-40, this.pv/4, 3);
                 }
                 else if (this.pv <= 75){
                     context.strokeRect(this.x-15, this.y-40, savepv/4, 5);
                     this.colorpv="green";
-                    context.fillStyle = this.colorpv; 
+                    context.fillStyle = this.colorpv;
                     context.fillRect(this.x-15, this.y-40, this.pv/4, 3);
                 }
                 else{
                     context.strokeRect(this.x-15, this.y-40, savepv/4, 5);
-                    context.fillStyle = this.colorpv; 
+                    context.fillStyle = this.colorpv;
                     context.fillRect(this.x-15, this.y-40, this.pv/4, 3);
                 }
                     
         if(sprite=='./images/sprite_eclaireur.png'){
-        //On affiche une frame de la spriteMap
         context.drawImage(img, 50 * frameSpriteSheet, spritelol , 50, 50, this.x-17, this.y-20, 35, 35);
-
                 frameSpriteSheet++;
-        //on incremente le numero de frame
         if (frameSpriteSheet == 10)
             frameSpriteSheet = 0;
         }
         else{
             context.drawImage(img, 50 * frameSpriteSheet, spritelol , 50, 50, this.x-17, this.y-20, 35, 35);
-        //on incremente le numero de frame
             if (frameCount % 5 == 0){
                 frameSpriteSheet++;
             }
@@ -90,9 +84,6 @@ function Enemy(x, y, pv, speed, type, sprite, genre)
             this.frize = 0;
             this.freezy=1;
         }
-         //Math.ceil permet d'arrondir au superieur, cela permet d'aller en haut puis à gauche lorsqu'on décremente
-         //Math.floor permet d'arrondir a l'inferieur,cela permet d'aller en bas puis à droit lorsqu'on incremente
-         
         if ((level[this.tableData][this.tableIndex+1] == 1 || level[this.tableData][this.tableIndex+1] == 4) && this.path[this.tableData][this.tableIndex+1] != 1)
         {
             this.path[this.tableData][this.tableIndex] = 1;
@@ -129,47 +120,45 @@ function Enemy(x, y, pv, speed, type, sprite, genre)
 
     this.damage = function(num, dmg)
     {
-        this.pv-=dmg; //on decremente les pv 
+        this.pv-=dmg;
         if(this.pv<=0)          
-                if(this.genre == "peon"){
-                    wave.splice(num,1);  //si plus de pv delete du tableau
-                    player.or+=10;
+                if(this.genre == "blob"){
+                    wave.splice(num,1);
+                    player.geld+=10;
                 }
                 else if(this.genre == "soldat"){
-                    wave.splice(num,1);  //si plus de pv delete du tableau
-                    player.or+=20;
+                    wave.splice(num,1);
+                    player.geld+=20;
                 }
-                else if(this.genre == "chevalier"){
-                    wave.splice(num,1);  //si plus de pv delete du tableau
-                    player.or+=30;
+                else if(this.genre == "ritter"){
+                    wave.splice(num,1);
+                    player.geld+=30;
                 }
-                else if(this.genre == "roi"){
-                    wave.splice(num,1);  //si plus de pv delete du tableau
-                    player.or+=50;
+                else if(this.genre == "koenig"){
+                    wave.splice(num,1);
+                    player.geld+=50;
                 }    
     };
 
-
-    //si l'ennemi arrive au bout, on le detruit et nouvelle vague
     this.over = function(num)
     {
         if (level[this.tableData][this.tableIndex] == 4)
         {
-            if(this.genre == "peon"){
-                    wave.splice(num,1);  //si plus de pv delete du tableau
-                    player.vie-=1;
+            if(this.genre == "blob"){
+                    wave.splice(num,1);
+                    player.leben-=1;
                 }
                 else if(this.genre == "soldat"){
-                    wave.splice(num,1);  //si plus de pv delete du tableau
-                    player.vie-=2;
+                    wave.splice(num,1);
+                    player.leben-=2;
                 }
-                else if(this.genre == "chevalier"){
-                    wave.splice(num,1);  //si plus de pv delete du tableau
-                    player.vie-=3;
+                else if(this.genre == "ritter"){
+                    wave.splice(num,1);
+                    player.leben-=3;
                 }
-                else if(this.genre == "roi"){
-                    wave.splice(num,1);  //si plus de pv delete du tableau
-                    player.vie-=5;
+                else if(this.genre == "koenig"){
+                    wave.splice(num,1);
+                    player.leben-=5;
                 }    
         }
     };

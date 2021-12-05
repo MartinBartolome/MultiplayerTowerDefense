@@ -7,7 +7,7 @@ function run()
     drawTowers();
     drawMissiles();
     checkSpawn();
-    getinfotour();
+    getinfobox();
     frameCount++;
     if(frameCount == 300){
       frameCount = 0;

@@ -5,22 +5,22 @@ canvas.onclick= function(ev)
 console.log(level[y][x]);
   if(level[y][x] == 2)
   {
-    if(player.selectedtower==1 && player.or >= 50)
+    if(player.selectedtower==1 && player.geld >= 50)
     {
       level[y][x] = 5;
-      player.or-=50;
+      player.geld-=50;
       towers.push(new Tower("sol", 200, x, y,25,1));
     }
-    if(player.selectedtower==2 && player.or >= 50)
+    if(player.selectedtower==2 && player.geld >= 50)
     {
       level[y][x] =5;
-      player.or-=50;
+      player.geld-=50;
       towers.push(new Tower("air", 200, x, y,50,1));
     }
-    if(player.selectedtower==3 && player.or >= 50)
+    if(player.selectedtower==3 && player.geld >= 50)
     {
       level[y][x]=5;
-      player.or-=50;
+      player.geld-=50;
       towers.push(new Tower("freeze", 200, x, y,0.6,1));
     }
     let GameUpdateMessage = new window.GameUpdateMessage(UpdateType.Level,level);

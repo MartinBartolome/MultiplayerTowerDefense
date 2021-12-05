@@ -9,26 +9,26 @@ function drawBackground()
 		{
 			switch (level[i][j])
 			{
-				case 0: //sol
+				case 0:
 					context.drawImage(img, j*cell_size, i*cell_size, cell_size, cell_size);
 				break;
-				case 1: //chemin ennemis
+				case 1:
 					context.fillStyle = "#FFCC66";
 					context.fillRect(j*cell_size, i*cell_size, cell_size, cell_size);
 				break;
-				case 2: //tours
+				case 2:
 					context.fillStyle = "#934016";
 					context.fillRect(j*cell_size, i*cell_size, cell_size, cell_size);
 				break;
-				case 3: //depart
+				case 3:
 					context.fillStyle = "#FFCC66";
 					context.fillRect(j*cell_size, i*cell_size, cell_size, cell_size);
 				break;
-				case 4: //arrivee
+				case 4:
 					context.fillStyle = "#FFCC66";
 					context.fillRect(j*cell_size, i*cell_size, cell_size, cell_size);
 				break;
-				case 5: //arrivee
+				case 5:
 					context.fillStyle = "#934016";
 					context.fillRect(j*cell_size, i*cell_size, cell_size, cell_size);
 				break;

@@ -22,7 +22,7 @@ var Missile = function(x,y,angle,damage,type,sprite){
 		for (var y = 0; y < wave.length; y++) {
 			if( this.x <= (wave[y].x+30) && (this.x+30) >= (wave[y].x) && this.y <= (wave[y].y+30) && (this.y+30) >= (wave[y].y)){
 				missiles.splice(i,1);
-				if(wave[y].genre == "peon"){ 
+				if(wave[y].genre == "blob"){
 					if(this.type=="freeze"){
 						wave[y].froze = true;
 						wave[y].freezy = this.damage;
@@ -58,7 +58,7 @@ var Missile = function(x,y,angle,damage,type,sprite){
 						}
 					}
 				}
-				else if(wave[y].genre == "chevalier"){
+				else if(wave[y].genre == "ritter"){
 					if(this.type=="freeze"){
 						wave[y].froze = true;
 						wave[y].freezy = this.damage;
@@ -76,7 +76,7 @@ var Missile = function(x,y,angle,damage,type,sprite){
 						}
 					}
 				}
-				else if(wave[y].genre == "roi"){
+				else if(wave[y].genre == "koenig"){
 					if(this.type=="freeze"){
 						wave[y].froze = true;
 						wave[y].freezy = this.damage;

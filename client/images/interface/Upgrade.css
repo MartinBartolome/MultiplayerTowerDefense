@@ -16,9 +16,9 @@ body
  	right: 0px;
 	
 }
-#bannere
+#banner
 {
-	background-image: url(Bannere.png);
+	background-image: url(banner.png);
 	height:100px;
  	width:300px;
  	margin: auto;

@@ -156,7 +156,7 @@ function connect() {
       websocketGame.socket.onclose = function (event) {
         if (!websocketGame.quit) {
           console.log(
-            `[CLOSED] Connection closed cleanly, code=${event.code} reason=${event.reason}`
+            `[closeD] Connection closed cleanly, code=${event.code} reason=${event.reason}`
           );
         }
       };
