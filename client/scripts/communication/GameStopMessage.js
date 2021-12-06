@@ -6,11 +6,11 @@ class GameStopMessage extends window.Message
     }
     fromStream(stream) {
         this.stream = stream;
-        var data = JSON.parse(stream);
+        const data = JSON.parse(stream);
         this.win = data.win;
     }
     toStream() {
-        var data = {};
+        const data = {};
         data.messageType = this.messageType;
         data.win = this.win;
         return JSON.stringify(data);

@@ -10,10 +10,10 @@ html
 	width:1200px;
 	margin: auto;
 	position: absolute;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 #wrapper
 {
@@ -23,8 +23,8 @@ html
 	position: absolute;
 	top: 2px;
 	bottom: 70px;
-	left: 0px;
-	right: 0px;
+	left: 0;
+	right: 0;
 	overflow:hidden;
 }
 #canvas
@@ -33,10 +33,10 @@ html
 	width:900px;
 	margin: auto;
 	position: absolute;
-	top: 0px;
+	top: 0;
 	bottom: 150px;
 	left: 268px;
-	right: 0px;
+	right: 0;
 }
 #buttonspawn
 {
@@ -46,9 +46,9 @@ html
 	margin: auto;
 	position: absolute;
 	top: 600px;
-	bottom: 0px;
+	bottom: 0;
 	left: 1000px;
-	right: 0px;
+	right: 0;
 }
 #buttonspawn:hover
 {
@@ -63,8 +63,8 @@ html
 	margin: auto;
 	position: absolute;
 	top: 600px;
-	bottom: 0px;
-	left: 0px;
+	bottom: 0;
+	left: 0;
 	right: 500px;
 }
 #tower2
@@ -75,8 +75,8 @@ html
 	margin: auto;
 	position: absolute;
 	top: 600px;
-	bottom: 0px;
-	left: 0px;
+	bottom: 0;
+	left: 0;
 	right: 300px;
 }
 #tower3
@@ -87,22 +87,11 @@ html
 	margin: auto;
 	position: absolute;
 	top: 600px;
-	bottom: 0px;
-	left: 0px;
+	bottom: 0;
+	left: 0;
 	right: 100px;
 }
-#temps
-{
-	font: 30px sans-serif;
-	height:60px;
-	width:100px;
-	margin: auto;
-	position: absolute;
-	top: 0px;
-	bottom: 300px;
-	left: 0px;
-	right: 800px;
-}
+
 #info
 {
 	height:300px;
@@ -110,8 +99,8 @@ html
 	margin: auto;
 	position: absolute;
 	top: 350px;
-	bottom: 0px;
-	left: 0px;
+	bottom: 0;
+	left: 0;
 	right: 850px;
 }
 #infobox
@@ -122,8 +111,8 @@ html
 	margin: auto;
 	position: absolute;
 	top: 380px;
-	bottom: 0px;
-	left: 0px;
+	bottom: 0;
+	left: 0;
 	right: 930px;
 }
 #win{
@@ -132,10 +121,10 @@ html
 	width:900px;
 	margin: auto;
 	position: absolute;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	display: none;
 	color:black;
 	z-index:1;
@@ -147,20 +136,10 @@ html
 	margin: auto;
 	position: absolute;
 	font-size: 40px;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	display: none;
 	color:black;
-}
-#next{
-	height:130px;
-	width:300px;
-	margin: auto;
-	position: absolute;
-	top: 310px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
 }

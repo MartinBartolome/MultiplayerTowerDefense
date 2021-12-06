@@ -6,11 +6,11 @@ class GameStartMessage extends window.Message
     }
     fromStream(stream) {
         this.stream = stream;
-        var data = JSON.parse(stream);
+        const data = JSON.parse(stream);
         this.Level = data.Level;
     }
     toStream() {
-        var data = {};
+        const data = {};
         data.messageType = this.messageType;
         data.level = new window.Level();
         data.Level = this.Level;

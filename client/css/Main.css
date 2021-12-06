@@ -32,7 +32,7 @@ form {
  }
 h1 {
     text-align:center;
-    fone-size:18;
+    font-size:18px;
 }
 
 .formcontainer {
@@ -47,7 +47,7 @@ h1 {
     width:195px;
     margin-left: 4px;
     border:1px solid #ACD8F0; }
-#submit { width: 60px; }
+
 #chatEntries {
     text-align:left;
     margin: 0 auto 10px;
@@ -72,31 +72,4 @@ a {
 
 a:hover { text-decoration:underline; }
 input { font:12px arial; }
-.float-left {
-    float: left;
-}
 
-.float-right {
-    float: right;
-}
-.chatcard-body {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    min-height: 1px;
-}
-.chatcard-text:last-child {
-    margin: 0;
-}
-.chatcard {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-}

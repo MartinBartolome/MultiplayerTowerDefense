@@ -1,23 +1,24 @@
 class ChatMessage extends window.Message
 {
 
-    constructor(websocketGame,text) {
+    constructor(text, playerID,playerName) {
         super(window.messageType.CHAT);
-        this.wsgame = websocketGame;
         this.text = text;
+        this.playerID = playerID;
+        this.playerName = playerName;
     }
     fromStream(stream) {
         this.stream = stream;
-        var data = JSON.parse(stream);
+        const data = JSON.parse(stream);
         this.playerID = data.playerID;
         this.playerName = data.playerName;
         this.text = data.text;
     }
     toStream() {
-        var data = {};
+        const data = {};
         data.messageType = this.messageType;
-        data.playerID = this.wsgame.playerIdentifier;
-        data.playerName = this.wsgame.playerName;
+        data.playerID = this.playerID;
+        data.playerName = this.playerName;
         data.text = this.text;
         return JSON.stringify(data);
     }
