@@ -138,12 +138,14 @@ class Game{
             if(this.NumWelle == 5) {
                 let stop = new GameStopMessage(true);
                 this.broadcast(stop);
+                console.log(stop);
             }
         }
         else
         {
             let message2 = new GameUpdateMessage(Message.UpdateType.Wave,enemy);
             this.broadcast(message2);
+            console.log(message2);
         }
     };
 

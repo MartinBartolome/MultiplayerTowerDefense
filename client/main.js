@@ -86,10 +86,12 @@ function connect() {
           switch (data.messageType) {
             case messageType.CHAT:
               chatLogEntry(data);
+              console.log(data);
               break;
             case messageType.GAMESTART:
               let gamestartmessage = new window.GameStartMessage();
               gamestartmessage.fromStream(event.data);
+              console.log(gamestartmessage);
               level = [];
               level = gamestartmessage.Level.level;
               gameLoop();
@@ -119,6 +121,7 @@ function connect() {
               }
               if(gameupdatemessage.updateType == UpdateType.Wave)
               {
+                console.log(gameupdatemessage);
                   wave.push(
                       new Enemy(gameupdatemessage.UpdateObject.x,
                           gameupdatemessage.UpdateObject.y,
@@ -129,13 +132,12 @@ function connect() {
                           gameupdatemessage.UpdateObject.genre));
                   wavecounter = gameupdatemessage.UpdateObject.wave;
               }
-              break;
-            case messageType.SHOT:
-              renderHit(data);
+              console.log(gameupdatemessage);
               break;
             case messageType.GAMESTOP:
               let gamestopmessage = new window.GameStopMessage();
               gamestopmessage.fromStream(event.data);
+              console.log(gamestopmessage);
               win = gamestopmessage.win;
               websocketGame.running = false;
               reset();
