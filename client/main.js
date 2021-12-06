@@ -44,17 +44,8 @@ function sleep(ms) {
 
 async function gameLoop() {
   console.log('this')
-  // das wird Client-mässig gebraucht
-  let i = 0;
-  while (1) {
-    i++;
-    if (websocketGame.running) {
-      run();
-      // lets go
-      /* render() */
-      /* console.log(map); */
-    }
-    await sleep(10000);
+  if (websocketGame.running) {
+    run();
   }
 }
 /**
