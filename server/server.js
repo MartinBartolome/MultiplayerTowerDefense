@@ -17,8 +17,7 @@ const server = new WebSocket.Server({ port: 8080 });
 console.log('Server Online\n');
 
 
-
-var websocketGame = {
+const websocketGame = {
   socket: {},
   playerID: '',
   playerName: '',
@@ -52,11 +51,11 @@ server.on('connection', socket => {
         case Message.MessageType.GAMEUPDATE:
           let updatemessage = new GameUpdateMessage();
           updatemessage.fromStream(event.data);
-          if(updatemessage.updateType == UpdateType.Tower)
+          if(updatemessage.updateType === UpdateType.Tower)
           {
             broadcast(updatemessage);
           }
-          if(updatemessage.updateType == UpdateType.Wave)
+          if(updatemessage.updateType === UpdateType.Wave)
           {
             gameStatus.canSpawn = true;
           }
@@ -87,7 +86,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-var gameStatus = {
+let gameStatus = {
   registeredPlayers: new Map(),
   countdown: 3,
   countdownStarted: false,
@@ -100,9 +99,9 @@ async function gameLoop() {
   let i = 0;
   while (1) {
     i++;
-    console.log(i % 2 == 0 ? 'tick' : 'tock');
+    console.log(i % 2 === 0 ? 'tick' : 'tock');
 
-    if (gameStatus.registeredPlayers.size == 2 && !gameStatus.countdownStarted) {
+    if (gameStatus.registeredPlayers.size === 2 && !gameStatus.countdownStarted) {
       gameStatus.countdownStarted = true;
       console.log('Start Countdown');
     } else if (gameStatus.countdown > 0 && gameStatus.countdownStarted) {
@@ -112,7 +111,7 @@ async function gameLoop() {
       console.log(message);
       broadcast(message);
       gameStatus.countdown--;
-    } else if (gameStatus.countdown == 0 && !gameStatus.started) {
+    } else if (gameStatus.countdown === 0 && !gameStatus.started) {
       let message = new ChatMessage('LFG')
       message.playerName = 'Server';
       gameStatus.started = true;
@@ -152,4 +151,4 @@ function broadcast(data) {
   });
 }
 
-gameLoop();
+gameLoop().then();

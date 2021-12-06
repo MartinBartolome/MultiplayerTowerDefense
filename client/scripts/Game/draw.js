@@ -1,11 +1,11 @@
 function drawBackground()
 {
 	context.fillRect(0,0,canvas_width, canvas_height);
-	var img = new Image();
-    img.src = "./images/herbe.jpg";
-	for (var i = 0; i < level.length; i++)
+	const img = new Image();
+	img.src = "./images/herbe.jpg";
+	for (let i = 0; i < level.length; i++)
 	{
-		for(var j = 0; j < level[i].length; j++)
+		for(let j = 0; j < level[i].length; j++)
 		{
 			switch (level[i][j])
 			{
@@ -40,7 +40,7 @@ function drawBackground()
 }
 function drawEnemies()
 {
-	for (var i = 0; i < wave.length; i++)
+	for (let i = 0; i < wave.length; i++)
 	{
 		wave[i].draw();
 		wave[i].move();
@@ -49,7 +49,7 @@ function drawEnemies()
 }
 function drawTowers()
 {
-	for (var y = 0; y < towers.length; y++) {
+	for (let y = 0; y < towers.length; y++) {
 	 	towers[y].draw();
 	 	towers[y].check();
 	 	towers[y].shoot();
@@ -57,7 +57,7 @@ function drawTowers()
 }
 function drawMissiles()
 {
-	for (var i = 0; i < missiles.length; i++) {
+	for (let i = 0; i < missiles.length; i++) {
 	 	missiles[i].move();
 	 	missiles[i].draw();
 	 	missiles[i].explode(i);

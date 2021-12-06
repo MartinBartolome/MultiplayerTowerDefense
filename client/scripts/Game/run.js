@@ -9,7 +9,7 @@ function run()
     checkSpawn();
     getinfobox();
     frameCount++;
-    if(frameCount == 300){
+    if(frameCount === 300){
       frameCount = 0;
     }
     drawEnemies();

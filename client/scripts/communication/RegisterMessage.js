@@ -8,12 +8,12 @@ class RegisterMessage extends window.Message
     }
     fromStream(stream) {
         this.stream = stream;
-        var data = JSON.parse(stream);
+        const data = JSON.parse(stream);
         this.playerID = data.playerID;
         this.playerName = data.playerName;
     }
     toStream() {
-        var data = {};
+        const data = {};
         data.messageType = this.messageType;
         data.playerID = this.playerID;
         data.playerName = this.playerName;

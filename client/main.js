@@ -1,38 +1,29 @@
-var websocketGame = {
+const websocketGame = {
   socket: {},
   playerID: '',
   playerName: '',
   quit: false,
   running: true
 };
-var playercount = 0;
+const playercount = 0;
 // init script when the DOM is ready.
-var level = [];
+let level = [];
 $(function () {
   connect();
   validatePlayerName();
   startGame();
   handleChatText();
 });
-var wavecounter = 0;
-var win = false;
+let wavecounter = 0;
+let win = false;
+
 /**
  * Validate length (min. 3, max. 10 chars) of playername
  */
 function validatePlayerName() {
-  $('#input-playername').keyup(function (e) {});
+  $('#input-playername').keyup(function () {});
 }
 
-function waitStateInvoke(socket, data) {
-  console.log('Wait State');
-}
-
-async function gameLoop() {
-  console.log('this')
-  if (websocketGame.running) {
-    run();
-  }
-}
 /**
  * Manage the websocket connection and react to the different messages
  */
@@ -45,7 +36,7 @@ function connect() {
       websocketGame.socket = new WebSocket('ws://localhost:8080');
 
       //on open event
-      websocketGame.socket.onopen = function (e) {
+      websocketGame.socket.onopen = function () {
         console.log('[OPEN] Connection established');
         websocketGame.playerID = '1' + Math.floor(Math.random() * 1000000000);
       };
@@ -72,16 +63,18 @@ function connect() {
               console.log(gamestartmessage);
               level = [];
               level = gamestartmessage.Level.level;
-              gameLoop();
+              if (websocketGame.running) {
+                run();
+              }
               websocketGame.running = true;
               break;
             case messageType.GAMEUPDATE:
               let gameupdatemessage = new window.GameUpdateMessage();
               gameupdatemessage.fromStream(event.data);
-              if(gameupdatemessage.updateType == UpdateType.Tower)
+              if(gameupdatemessage.updateType === UpdateType.Tower)
               {
                 towers = [];
-                for (var y = 0; y < gameupdatemessage.UpdateObject.length; y++) {
+                for (let y = 0; y < gameupdatemessage.UpdateObject.length; y++) {
                   towers.push(
                       new Tower(gameupdatemessage.UpdateObject[y].type,
                           gameupdatemessage.UpdateObject[y].range,
@@ -91,13 +84,13 @@ function connect() {
                           gameupdatemessage.UpdateObject[y].upgrade));
                 }
               }
-              if(gameupdatemessage.updateType == UpdateType.Level)
+              if(gameupdatemessage.updateType === UpdateType.Level)
               {
               }
-              if(gameupdatemessage.updateType == UpdateType.Player)
+              if(gameupdatemessage.updateType === UpdateType.Player)
               {
               }
-              if(gameupdatemessage.updateType == UpdateType.Wave)
+              if(gameupdatemessage.updateType === UpdateType.Wave)
               {
                 console.log(gameupdatemessage);
                   wave.push(
@@ -165,7 +158,7 @@ function startGame() {
     //alert to avoid that player waits without open socket connection for another player
     //e.g. if server is not running, there's an alert before
     //but we don't deactivate the whole site
-    if (websocketGame.socket.readyState != 1) {
+    if (websocketGame.socket.readyState !== 1) {
       console.log('[ERROR] Socket connection is not open.');
       alert(lang.ALERT_CONNECTIONLOST);
     } else {
@@ -175,7 +168,7 @@ function startGame() {
 
       websocketGame.playerName = playerName;
       let message = new RegisterMessage(websocketGame.playerID,websocketGame.playerName);
-      if(playercount == 0)
+      if(playercount === 0)
       {
 
       }
@@ -227,7 +220,7 @@ function addChatText(message, received) {
   let text = $('<p/>');
   text.text(message);
   //if message is received put it left otherwise right
-  if (received == true) {
+  if (received === true) {
     text.addClass('chatcard-text float-left');
   } else {
     text.addClass('chatcard-text float-right');
@@ -236,13 +229,12 @@ function addChatText(message, received) {
   divcardbody.append(text);
   $('#chatEntries').append(divcard);
   //keep scrollbar at bottom
-  var chatBody = document.querySelector('#chatEntries');
+  const chatBody = document.querySelector('#chatEntries');
   chatBody.scrollTop = chatBody.scrollHeight - chatBody.clientHeight;
 }
 /**
  * Handle chat message from server (if received ChatLogEntry)
- * @param clientWebSocket
- * @param stream
+ * @param chatMessage
  */
 function chatLogEntry(chatMessage) {
   addChatText('[' + chatMessage.playerName + ']: ' + chatMessage.text, true);
