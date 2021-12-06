@@ -27,21 +27,6 @@ function waitStateInvoke(socket, data) {
   console.log('Wait State');
 }
 
-function createMessage(messageType, value) {
-  let message = {
-    messageType: messageType,
-    value: value,
-    playerID: websocketGame.playerID,
-    playerName: websocketGame.playerName,
-    timestamp: new Date()
-  };
-  return JSON.stringify(message);
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 async function gameLoop() {
   console.log('this')
   if (websocketGame.running) {
@@ -76,8 +61,10 @@ function connect() {
           /* console.log('data', data, data['messageType']); */
           switch (data.messageType) {
             case messageType.CHAT:
-              chatLogEntry(data);
-              console.log(data);
+              let chatMessage = new window.ChatMessage();
+              chatMessage.fromStream(event.data);
+              chatLogEntry(chatMessage);
+              console.log(chatMessage);
               break;
             case messageType.GAMESTART:
               let gamestartmessage = new window.GameStartMessage();
@@ -187,7 +174,7 @@ function startGame() {
       bindPreventPageReload();
 
       websocketGame.playerName = playerName;
-      let message = new RegisterMessage(websocketGame);
+      let message = new RegisterMessage(websocketGame.playerID,websocketGame.playerName);
       if(playercount == 0)
       {
 
@@ -221,7 +208,7 @@ function handleChatText() {
 function sendChatText() {
   let input = $('#input-chat').val();
   console.log('[SEND] chat text: ' + input);
-  let message = new window.ChatMessage(websocketGame,input);
+  let message = new window.ChatMessage(input,websocketGame.playerID,websocketGame.playerName);
   websocketGame.socket.send(message.toStream());
 
   $('#input-chat').val('');
@@ -257,8 +244,8 @@ function addChatText(message, received) {
  * @param clientWebSocket
  * @param stream
  */
-function chatLogEntry(data) {
-  addChatText('[' + data.playerName + ']: ' + data.text, true);
+function chatLogEntry(chatMessage) {
+  addChatText('[' + chatMessage.playerName + ']: ' + chatMessage.text, true);
 }
 
 /**
