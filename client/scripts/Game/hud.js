@@ -3,19 +3,18 @@ function nextWaveForced()
 {
     let GameUpdateMessage = new window.GameUpdateMessage(UpdateType.Wave);
     websocketGame.socket.send(GameUpdateMessage.toStream());
-    player.geld += (1*20);
+    player.geld += (1*wavecounter);
 }
 function checkSpawn()
   {
-      /*if((wave.length == 0) || (wave.length == spawn.nbUnitProWelle))
+      if((wave.length == 0) || (wave.length == 5))
       {
         document.getElementById("buttonspawn").style.display = "inline";
       }
       else
       {
-        spawn.canSpawn = false;
         document.getElementById("buttonspawn").style.display = "none";
-      }*/
+      }
   }
 
 function kk1()
@@ -43,25 +42,25 @@ function kk3()
 function Scoring()
 {
     var addLife = document.getElementById("leben")
-    addLife.innerHTML = "lebens : " + player.leben;
+    addLife.innerHTML = "leben : " + player.leben;
     var addgeld = document.getElementById("geld")
     addgeld.innerHTML = "geld : " + player.geld;
     var addWelle = document.getElementById("welle")
-    addWelle.innerHTML = "Welle : " + 1 + " / 5";
+    addWelle.innerHTML = "Welle : " + wavecounter + " / 5";
 }
 function Win()
 {
-  /*if(spawn.NumWelle == spawn.nbWelleTotal){
+  if(win){
     var nospawn = document.getElementById("buttonspawn")
     nospawn.style.display = "none";
    }
-   if(spawn.NumWelle == (spawn.nbWelleTotal) && player.leben >= 1){
+   if(win && player.leben >= 1){
     document.getElementById("win").style.display = "inline";
    }
    if(player.leben <= 0){
     var loose = document.getElementById("loose")
     loose.style.display = "inline";
-   }*/
+   }
 }
 
 function getinfobox()

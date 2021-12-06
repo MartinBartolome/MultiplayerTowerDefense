@@ -14,6 +14,8 @@ $(function () {
   startGame();
   handleChatText();
 });
+var wavecounter = 0;
+var win = false;
 /**
  * Validate length (min. 3, max. 10 chars) of playername
  */
@@ -42,17 +44,8 @@ function sleep(ms) {
 
 async function gameLoop() {
   console.log('this')
-  // das wird Client-mässig gebraucht
-  let i = 0;
-  while (1) {
-    i++;
-    if (websocketGame.running) {
-      run();
-      // lets go
-      /* render() */
-      /* console.log(map); */
-    }
-    await sleep(10000);
+  if (websocketGame.running) {
+    run();
   }
 }
 /**
@@ -84,10 +77,12 @@ function connect() {
           switch (data.messageType) {
             case messageType.CHAT:
               chatLogEntry(data);
+              console.log(data);
               break;
             case messageType.GAMESTART:
               let gamestartmessage = new window.GameStartMessage();
               gamestartmessage.fromStream(event.data);
+              console.log(gamestartmessage);
               level = [];
               level = gamestartmessage.Level.level;
               gameLoop();
@@ -117,6 +112,7 @@ function connect() {
               }
               if(gameupdatemessage.updateType == UpdateType.Wave)
               {
+                console.log(gameupdatemessage);
                   wave.push(
                       new Enemy(gameupdatemessage.UpdateObject.x,
                           gameupdatemessage.UpdateObject.y,
@@ -125,13 +121,15 @@ function connect() {
                           gameupdatemessage.UpdateObject.type,
                           gameupdatemessage.UpdateObject.sprite,
                           gameupdatemessage.UpdateObject.genre));
-
+                  wavecounter = gameupdatemessage.UpdateObject.wave;
               }
-              break;
-            case messageType.SHOT:
-              renderHit(data);
+              console.log(gameupdatemessage);
               break;
             case messageType.GAMESTOP:
+              let gamestopmessage = new window.GameStopMessage();
+              gamestopmessage.fromStream(event.data);
+              console.log(gamestopmessage);
+              win = gamestopmessage.win;
               websocketGame.running = false;
               reset();
               removeCanvas();

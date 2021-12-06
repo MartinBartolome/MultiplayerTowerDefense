@@ -1,4 +1,5 @@
 const {GameUpdateMessage} = require("../communication/ClientMessages/GameUpdateMessage");
+const {GameStopMessage} = require("../communication/ServerMessages/GameStopMessage");
 const Message = require("../communication/Message");
 const {Enemy} = require("./Objects/Enemy");
 const WebSocket = require("ws");
@@ -53,18 +54,18 @@ class Game{
                         }
                         if(this.NumWelle==2){
                             this.nbUnitProWelle = 5;
-                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/orange.png',"blob",5);
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/orange.png',"soldat",5);
                         }
                         if(this.NumWelle==3){
                             this.nbUnitProWelle = 5;
-                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol","./images/soldat.png","soldat",5);
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol","./images/soldat.png","ritter",5);
                         }
                         if(this.NumWelle==4){
                             this.nbUnitProWelle = 5;
-                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/knight.png',"ritter",5);
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/knight.png',"koenig",5);
                         }
                         if(this.NumWelle==5){
-                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"ritter",5);
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"koenig",5);
                         }
                     }
                     if(this.lvl==2){
@@ -76,13 +77,13 @@ class Game{
                             this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/soldat.png',"soldat",5);
                         }
                         if(this.NumWelle==3){
-                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/knight.png',"blob",6);
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/knight.png',"ritter",6);
                         }
                         if(this.NumWelle==4){
-                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"ritter",3);
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"koenig",3);
                         }
                         if(this.NumWelle==5){
-                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"ritter",6);
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"koenig",6);
                         }
                     }
                     if(this.lvl==3){
@@ -91,16 +92,16 @@ class Game{
                             this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/orange.png',"blob",5);
                         }
                         if(this.NumWelle==2){
-                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/orange.png',"blob",5);
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/orange.png',"soldat",5);
                         }
                         if(this.NumWelle==3){
-                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"blob",5);
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"ritter",5);
                         }
                         if(this.NumWelle==4){
-                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"blob",5);
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"koenig",5);
                         }
                         if(this.NumWelle==5){
-                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"blob",5);
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"koenig",5);
                         }
                     }
                     if(this.lvl==4){
@@ -127,18 +128,24 @@ class Game{
     }
     enemySpawn(x, y, pv, speed, type, sprite, genre,nbUnitProWelle)
     {
-        let enemy = new Enemy(x, y, pv, speed, type, sprite, genre);
+        let enemy = new Enemy(x, y, pv, speed, type, sprite, genre, this.NumWelle);
         this.wave.push(enemy);
         this.nbUnit++;
-        if (this.nbUnit >= nbUnitProWelle)
+        if (this.nbUnit > nbUnitProWelle)
         {
             this.nbUnit = 0;
             this.canSpawn = false;
+            if(this.NumWelle == 5) {
+                let stop = new GameStopMessage(true);
+                this.broadcast(stop);
+                console.log(stop);
+            }
         }
         else
         {
             let message2 = new GameUpdateMessage(Message.UpdateType.Wave,enemy);
             this.broadcast(message2);
+            console.log(message2);
         }
     };
 
