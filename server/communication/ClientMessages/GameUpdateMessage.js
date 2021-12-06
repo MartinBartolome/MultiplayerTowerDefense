@@ -12,14 +12,14 @@ class GameUpdateMessage extends Message.Message
     fromStream(stream)
     {
         this.stream = stream;
-        var data = JSON.parse(stream);
+        const data = JSON.parse(stream);
         this.messageType = data.messageType;
         this.updateType = data.updateType;
         this.UpdateObject = data.UpdateObject;
     }
 
     toStream() {
-        var data = {};
+        const data = {};
         data.messageType = this.messageType;
         data.updateType = this.updateType;
         data.UpdateObject = this.UpdateObject;

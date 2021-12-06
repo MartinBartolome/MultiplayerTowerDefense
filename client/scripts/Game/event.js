@@ -1,23 +1,23 @@
 canvas.onclick= function(ev)
 {
-  var x = Math.floor(ev.offsetX / 30);
-  var y = Math.floor(ev.offsetY / 30);
-console.log(level[y][x]);
-  if(level[y][x] == 2)
+  const x = Math.floor(ev.offsetX / 30);
+  const y = Math.floor(ev.offsetY / 30);
+  console.log(level[y][x]);
+  if(level[y][x] === 2)
   {
-    if(player.selectedtower==1 && player.geld >= 50)
+    if(player.selectedtower===1 && player.geld >= 50)
     {
       level[y][x] = 5;
       player.geld-=50;
       towers.push(new Tower("sol", 200, x, y,25,1));
     }
-    if(player.selectedtower==2 && player.geld >= 50)
+    if(player.selectedtower===2 && player.geld >= 50)
     {
       level[y][x] =5;
       player.geld-=50;
       towers.push(new Tower("air", 200, x, y,50,1));
     }
-    if(player.selectedtower==3 && player.geld >= 50)
+    if(player.selectedtower===3 && player.geld >= 50)
     {
       level[y][x]=5;
       player.geld-=50;

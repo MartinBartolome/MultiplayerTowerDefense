@@ -19,11 +19,8 @@ class Message {
         this.messageType = messageType;
     }
     fromStream(stream) {
-        var data = JSON.parse(stream);
+        const data = JSON.parse(stream);
         this.messageType = data.messageType;
-    }
-    getMessageType() {
-        return this.messageType;
     }
 }
 
