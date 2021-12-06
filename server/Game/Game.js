@@ -130,7 +130,7 @@ class Game{
         let enemy = new Enemy(x, y, pv, speed, type, sprite, genre);
         this.wave.push(enemy);
         this.nbUnit++;
-        if (this.nbUnit >= nbUnitProWelle)
+        if (this.nbUnit > nbUnitProWelle)
         {
             this.nbUnit = 0;
             this.canSpawn = false;

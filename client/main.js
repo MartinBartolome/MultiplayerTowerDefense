@@ -14,6 +14,7 @@ $(function () {
   startGame();
   handleChatText();
 });
+var wavecounter = 0;
 /**
  * Validate length (min. 3, max. 10 chars) of playername
  */
@@ -125,7 +126,7 @@ function connect() {
                           gameupdatemessage.UpdateObject.type,
                           gameupdatemessage.UpdateObject.sprite,
                           gameupdatemessage.UpdateObject.genre));
-
+                  wavecounter = wavecounter++;
               }
               break;
             case messageType.SHOT:

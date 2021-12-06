@@ -141,10 +141,11 @@ html
 }
 #loose{
 	background-color:red;
-	height:900px;
-	width:900px;
+	height:50px;
+	width:320px;
 	margin: auto;
 	position: absolute;
+	font-size: 40px;
 	top: 0px;
 	bottom: 0px;
 	left: 0px;
