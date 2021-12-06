@@ -1,6 +1,6 @@
 class Enemy
 {
-    constructor(x, y, pv, speed, type, sprite, genre) {
+    constructor(x, y, pv, speed, type, sprite, genre, wave) {
         this.freezy = 1;
         this.genre = genre;
         this.x = x;
@@ -15,9 +15,11 @@ class Enemy
         this.froze = false;
         this.frize = 0;
         this.sprite = sprite;
+        this.wave = wave;
         var spritelol = 32;
         var spriteigloo = 65;
         var frameSpriteSheet = 0;
+
     }
 
 }

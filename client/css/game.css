@@ -138,6 +138,7 @@ html
 	right: 0px;
 	display: none;
 	color:black;
+	z-index:1;
 }
 #loose{
 	background-color:red;

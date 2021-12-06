@@ -15,6 +15,7 @@ $(function () {
   handleChatText();
 });
 var wavecounter = 0;
+var win = false;
 /**
  * Validate length (min. 3, max. 10 chars) of playername
  */
@@ -126,13 +127,16 @@ function connect() {
                           gameupdatemessage.UpdateObject.type,
                           gameupdatemessage.UpdateObject.sprite,
                           gameupdatemessage.UpdateObject.genre));
-                  wavecounter = wavecounter++;
+                  wavecounter = gameupdatemessage.UpdateObject.wave;
               }
               break;
             case messageType.SHOT:
               renderHit(data);
               break;
             case messageType.GAMESTOP:
+              let gamestopmessage = new window.GameStopMessage();
+              gamestopmessage.fromStream(event.data);
+              win = gamestopmessage.win;
               websocketGame.running = false;
               reset();
               removeCanvas();

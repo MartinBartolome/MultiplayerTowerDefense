@@ -1,4 +1,5 @@
 const {GameUpdateMessage} = require("../communication/ClientMessages/GameUpdateMessage");
+const {GameStopMessage} = require("../communication/ServerMessages/GameStopMessage");
 const Message = require("../communication/Message");
 const {Enemy} = require("./Objects/Enemy");
 const WebSocket = require("ws");
@@ -127,13 +128,17 @@ class Game{
     }
     enemySpawn(x, y, pv, speed, type, sprite, genre,nbUnitProWelle)
     {
-        let enemy = new Enemy(x, y, pv, speed, type, sprite, genre);
+        let enemy = new Enemy(x, y, pv, speed, type, sprite, genre, this.NumWelle);
         this.wave.push(enemy);
         this.nbUnit++;
         if (this.nbUnit > nbUnitProWelle)
         {
             this.nbUnit = 0;
             this.canSpawn = false;
+            if(this.NumWelle == 5) {
+                let stop = new GameStopMessage(true);
+                this.broadcast(stop);
+            }
         }
         else
         {

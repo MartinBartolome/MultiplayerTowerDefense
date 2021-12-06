@@ -3,7 +3,7 @@ function nextWaveForced()
 {
     let GameUpdateMessage = new window.GameUpdateMessage(UpdateType.Wave);
     websocketGame.socket.send(GameUpdateMessage.toStream());
-    player.geld += (1*20);
+    player.geld += (1*wavecounter);
 }
 function checkSpawn()
   {
@@ -50,11 +50,11 @@ function Scoring()
 }
 function Win()
 {
-  if(wavecounter == 5){
+  if(win){
     var nospawn = document.getElementById("buttonspawn")
     nospawn.style.display = "none";
    }
-   if(wavecounter == (5) && player.leben >= 1){
+   if(win && player.leben >= 1){
     document.getElementById("win").style.display = "inline";
    }
    if(player.leben <= 0){
