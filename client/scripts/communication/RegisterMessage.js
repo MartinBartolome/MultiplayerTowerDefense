@@ -1,9 +1,10 @@
 class RegisterMessage extends window.Message
 {
 
-    constructor(websocketGame) {
+    constructor(playerID, playerName) {
         super(window.messageType.REGISTER);
-        this.wsgame = websocketGame;
+        this.playerID = playerID;
+        this.playerName = playerName;
     }
     fromStream(stream) {
         this.stream = stream;
@@ -14,8 +15,8 @@ class RegisterMessage extends window.Message
     toStream() {
         var data = {};
         data.messageType = this.messageType;
-        data.playerID = this.wsgame.playerIdentifier;
-        data.playerName = this.wsgame.playerName;
+        data.playerID = this.playerID;
+        data.playerName = this.playerName;
         return JSON.stringify(data);
     }
 }
