@@ -74,7 +74,7 @@ server.on('connection', socket => {
     gameStatus.started = false;
     gameStatus.countdown = 2;
     if (gameStatus.registeredPlayers.size < 2) {
-      let message = createMessage(Message.MessageType.GAMESTOP, 'stopping');
+      let message = GameStopMessage(false);
       broadcast(message);
     }
   };

@@ -42,7 +42,7 @@ function kk3()
 function Scoring()
 {
     var addLife = document.getElementById("leben")
-    addLife.innerHTML = "lebens : " + player.leben;
+    addLife.innerHTML = "leben : " + player.leben;
     var addgeld = document.getElementById("geld")
     addgeld.innerHTML = "geld : " + player.geld;
     var addWelle = document.getElementById("welle")
