@@ -1,4 +1,8 @@
 class Message {
+    /**
+     * Hauptklasse für Messages, mit dem Message Typ als Parametern.
+     * @param messageType
+     */
     constructor(messageType) {
         this.messageType = messageType;
     }

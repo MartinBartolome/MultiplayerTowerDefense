@@ -1,12 +1,11 @@
+/**
+ * Spieler mit gestartetem Level, selektierem Tower, sowie das geld und das Leben
+ * @param lvl
+ * @constructor
+ */
 const Player = function (lvl) {
     this.lvl = lvl;
-    /*******************************************************************************
-     *Variables des tours
-     ********************************************************************************/
     this.selectedtower = 0;
-    /*******************************************************************************
-     *Variables de l'HUD
-     ********************************************************************************/
     this.geld = 100;
     this.leben = 20;
 };

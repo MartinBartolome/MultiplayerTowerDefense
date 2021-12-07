@@ -1,12 +1,21 @@
 const Message = require('../Message')
 
+/**
+ * Klasse zum Registrieren eines Spielers
+ */
 class RegisterMessage extends Message.Message
 {
+    /**
+     * Konstruktor
+     */
     constructor()
     {
         super(Message.MessageType.REGISTER)
     }
-
+    /**
+     * Laden des Objekts aus einem Json string
+     * @param stream
+     */
     fromStream(stream)
     {
         this.stream = stream;
@@ -14,7 +23,10 @@ class RegisterMessage extends Message.Message
         this.playerID = data.playerID;
         this.playerName = data.playerName;
     }
-
+    /**
+     * Konvertieren des Objekts in einen JSON String
+     * @returns {string}
+     */
     toStream() {
         const data = {};
         data.messageType = this.messageType;

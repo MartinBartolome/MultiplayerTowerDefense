@@ -1,3 +1,13 @@
+/**
+ * Objekt für den Turm
+ * @param type Typ des Turms
+ * @param range Reichweite
+ * @param x X Koordinate
+ * @param y Y Koordinate
+ * @param damage Schaden
+ * @param upgrade Aktuelles Upgrade
+ * @constructor
+ */
 const Tower = function (type, range, x, y, damage, upgrade) {
     this.type = type;
     this.range = range;
@@ -10,6 +20,10 @@ const Tower = function (type, range, x, y, damage, upgrade) {
     let enemydistance = -1;
     this.canshoot = false;
     let frameSpriteSheet = 0;
+
+    /**
+     * Prüfen ob der Turm schiessen kann
+     */
     this.check = function () {
         this.canshoot = false;
         if (wave[0] != null) {
@@ -26,6 +40,9 @@ const Tower = function (type, range, x, y, damage, upgrade) {
             }
         }
     };
+    /**
+     * Schiessen in die Richtung des feindes
+     */
     this.shoot = function () {
         if (this.canshoot === true && this.type === "sol") {
             this.angle = (Math.atan2(this.x * 30 - wave[enemydistance].x, this.y * 30 - wave[enemydistance].y)) + Math.PI / 2;
@@ -40,6 +57,9 @@ const Tower = function (type, range, x, y, damage, upgrade) {
             missiles.push(new Missile(this.x, this.y, this.angle, this.damage / this.upgrade, this.type));
         }
     };
+    /**
+     * Zeichnen des Turmes
+     */
     this.draw = function () {
         img.src = "./images/" + this.type + this.upgrade + ".png";
         if (this.type === "freeze") {

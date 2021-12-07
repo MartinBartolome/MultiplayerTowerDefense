@@ -1,4 +1,8 @@
 const Level = require("./Level")
+
+/**
+ * erstes Level
+ */
 class LevelA extends Level.Level{
 
     constructor() {

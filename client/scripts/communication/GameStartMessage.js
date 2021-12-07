@@ -1,6 +1,8 @@
 class GameStartMessage extends window.Message
 {
-
+    /**
+     * Simple Spielstart Message, mit dem zu startenden Level
+     */
     constructor() {
         super(window.messageType.GAMESTART);
     }

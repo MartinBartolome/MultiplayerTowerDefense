@@ -1,3 +1,6 @@
+/**
+ * Zeichnen des Hintergrunds
+ */
 function drawBackground()
 {
 	context.fillRect(0,0,canvas_width, canvas_height);
@@ -38,6 +41,10 @@ function drawBackground()
 		}
 	}
 }
+
+/**
+ * Zeichnen aller Feinde
+ */
 function drawEnemies()
 {
 	for (let i = 0; i < wave.length; i++)
@@ -47,6 +54,10 @@ function drawEnemies()
 		wave[i].over(i);
 	}
 }
+
+/**
+ * Zeichnen aller Türme
+ */
 function drawTowers()
 {
 	for (let y = 0; y < towers.length; y++) {
@@ -55,6 +66,10 @@ function drawTowers()
 	 	towers[y].shoot();
 	 }
 }
+
+/**
+ * Zeichnen aller Schüsse
+ */
 function drawMissiles()
 {
 	for (let i = 0; i < missiles.length; i++) {

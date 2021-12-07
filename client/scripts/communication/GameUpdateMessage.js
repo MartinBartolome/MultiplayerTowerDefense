@@ -1,6 +1,10 @@
 class GameUpdateMessage extends window.Message
 {
-
+    /**
+     * Message zum Updaten des Spiels, mit übergebenen Update Typ und dem Objekt, was geupdatet werden soll
+     * @param updateType
+     * @param UpdateObject
+     */
     constructor(updateType, UpdateObject) {
         super(window.messageType.GAMEUPDATE);
         this.updateType = updateType;
