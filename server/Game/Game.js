@@ -4,6 +4,9 @@ const Message = require("../communication/Message");
 const {Enemy} = require("./Objects/Enemy");
 const WebSocket = require("ws");
 
+/**
+ * Klasse für das Spiel
+ */
 class Game{
 
     constructor(Server, Level) {
@@ -20,7 +23,11 @@ class Game{
         this.nbUnit = 0;
     }
 
-
+    /**
+     * Tick des GameLoops
+     * @param i
+     * @constructor
+     */
     Tick(i)
     {
         if ((i + 1) % 3 === 0) {
@@ -31,12 +38,19 @@ class Game{
         }
         //this.moveEnemies();
     }
+
+    /**
+     * Eine neue Welle soll erscheinen
+     */
     forceNextWave()
     {
         this.canSpawn = true;
         this.NumWelle+=1;
     }
 
+    /**
+     * Spawnen neuer Gegner
+     */
     spawner()
     {
         for (let i = 0; i < this.level.length; i++)
@@ -126,6 +140,18 @@ class Game{
             }
         }
     }
+
+    /**
+     * Gegner Spawnen lassen
+     * @param x
+     * @param y
+     * @param pv
+     * @param speed
+     * @param type
+     * @param sprite
+     * @param genre
+     * @param nbUnitProWelle
+     */
     enemySpawn(x, y, pv, speed, type, sprite, genre,nbUnitProWelle)
     {
         let enemy = new Enemy(x, y, pv, speed, type, sprite, genre, this.NumWelle);
@@ -149,6 +175,10 @@ class Game{
         }
     };
 
+    /**
+     * Senden der Nachricht an alle Clients
+     * @param data
+     */
     broadcast(data) {
         this.server.clients.forEach(client => {
             if (client.readyState === WebSocket.OPEN) {

@@ -1,3 +1,7 @@
+/**
+ * Event für das Setzen eines neuen Turmes
+ * @param ev
+ */
 canvas.onclick= function(ev)
 {
   const x = Math.floor(ev.offsetX / 30);

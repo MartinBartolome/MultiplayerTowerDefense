@@ -50,7 +50,7 @@ function connect() {
           this.message.fromStream(event.data);
           let data = JSON.parse(event.data);
           /* console.log('data', data, data['messageType']); */
-          switch (data.messageType) {
+          switch (data.messageType) { //Selektierung des Message Typs
             case messageType.CHAT:
               let chatMessage = new window.ChatMessage();
               chatMessage.fromStream(event.data);
@@ -71,7 +71,7 @@ function connect() {
             case messageType.GAMEUPDATE:
               let gameupdatemessage = new window.GameUpdateMessage();
               gameupdatemessage.fromStream(event.data);
-              if(gameupdatemessage.updateType === UpdateType.Tower)
+              if(gameupdatemessage.updateType === UpdateType.Tower) // Update Tower
               {
                 towers = [];
                 for (let y = 0; y < gameupdatemessage.UpdateObject.length; y++) {
@@ -84,13 +84,7 @@ function connect() {
                           gameupdatemessage.UpdateObject[y].upgrade));
                 }
               }
-              if(gameupdatemessage.updateType === UpdateType.Level)
-              {
-              }
-              if(gameupdatemessage.updateType === UpdateType.Player)
-              {
-              }
-              if(gameupdatemessage.updateType === UpdateType.Wave)
+              if(gameupdatemessage.updateType === UpdateType.Wave) // Update Feind
               {
                 console.log(gameupdatemessage);
                   wave.push(
@@ -144,6 +138,9 @@ function connect() {
   }
 }
 
+/**
+ * Zurücksetzen des Spiels
+ */
 function reset() {
   window.GameSession.handleGameExit();
 }

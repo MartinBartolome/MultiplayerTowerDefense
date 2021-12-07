@@ -1,3 +1,6 @@
+/**
+ * Initialisierung des Spiels
+ */
 window.onload = function()
 {
     canvas        = document.getElementById("canvas");

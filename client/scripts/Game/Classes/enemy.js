@@ -1,3 +1,14 @@
+/**
+ * Funktion für den Gegner
+ * @param x X Koordinate
+ * @param y Y Koordinate
+ * @param pv Health
+ * @param speed Speed
+ * @param type EnemyType
+ * @param sprite Which Sprite?
+ * @param genre Which genre of Enemy
+ * @constructor
+ */
 function Enemy(x, y, pv, speed, type, sprite, genre)
 {
     this.freezy = 1;
@@ -6,7 +17,7 @@ function Enemy(x, y, pv, speed, type, sprite, genre)
     this.y = y;
     this.tableIndex = Math.floor((x)/30);
     this.tableData = Math.floor((y)/30);
-    this.path = [];
+    this.path = []; //chart showing the road already travelled
     this.speed = (speed*this.freezy);
     this.pv = pv;
     this.colorpv = "green";
@@ -19,6 +30,7 @@ function Enemy(x, y, pv, speed, type, sprite, genre)
     let spritelol = 32;
     let spriteigloo = 65;
     let frameSpriteSheet = 0;
+    //We record the path of our enemy in the path array
     for (let i = 0; i < level.length; i++)
     {
         this.path[i] = [];
@@ -27,7 +39,9 @@ function Enemy(x, y, pv, speed, type, sprite, genre)
             this.path[i][j] = 0;
         }
     }
-
+    /**
+     * Funktion zum Zeichnen
+     */
     this.draw = function()
     {
         const savepv = pv;
@@ -57,13 +71,16 @@ function Enemy(x, y, pv, speed, type, sprite, genre)
                 }
                     
         if(sprite==='./images/sprite_eclaireur.png'){
+            //Display a frame of the spriteMap
         context.drawImage(img, 50 * frameSpriteSheet, spritelol , 50, 50, this.x-17, this.y-20, 35, 35);
                 frameSpriteSheet++;
+            //increase the frame number
         if (frameSpriteSheet === 10)
             frameSpriteSheet = 0;
         }
         else{
             context.drawImage(img, 50 * frameSpriteSheet, spritelol , 50, 50, this.x-17, this.y-20, 35, 35);
+            //increase the frame number
             if (frameCount % 5 === 0){
                 frameSpriteSheet++;
             }
@@ -72,6 +89,9 @@ function Enemy(x, y, pv, speed, type, sprite, genre)
             }
         }
     };
+    /**
+     * Bewegen des Feindes
+     */
     this.move = function()
     {
         if(this.froze === true)
@@ -117,7 +137,11 @@ function Enemy(x, y, pv, speed, type, sprite, genre)
             spriteigloo = 0;
         }
     };
-
+    /**
+     * Funktion um Schaden am Feind zu verursachen und dem Spieler geld zu geben
+     * @param num
+     * @param dmg
+     */
     this.damage = function(num, dmg)
     {
         this.pv-=dmg;
@@ -139,7 +163,10 @@ function Enemy(x, y, pv, speed, type, sprite, genre)
                     player.geld+=50;
                 }    
     };
-
+    /**
+     * Funktion, wenn der Feind das Ende der Karte erreicht
+     * @param num
+     */
     this.over = function(num)
     {
         if (level[this.tableData][this.tableIndex] === 4)

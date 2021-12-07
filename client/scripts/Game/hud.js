@@ -1,11 +1,18 @@
 const selected = false;
 
+/**
+ * Button zum starten einer neuen Welle
+ */
 function nextWaveForced()
 {
     let GameUpdateMessage = new window.GameUpdateMessage(UpdateType.Wave);
     websocketGame.socket.send(GameUpdateMessage.toStream());
     player.geld += (wavecounter);
 }
+
+/**
+ * prüfen ob die Welle vorbei ist
+ */
 function checkSpawn()
   {
       if((wave.length === 0) || (wave.length === 5))
@@ -18,6 +25,9 @@ function checkSpawn()
       }
   }
 
+/**
+ * Auswählen des ersten Turms
+ */
 function kk1()
 {
   player.selectedtower=1;
@@ -25,6 +35,9 @@ function kk1()
   document.getElementById("tower2").style.backgroundImage ="url('images/airbutton.png')";
   document.getElementById("tower3").style.backgroundImage ="url('images/freezebutton.png')";
 }
+/**
+ * Auswählen des zweiten Turms
+ */
 function kk2()
 {
   player.selectedtower=2;
@@ -32,6 +45,9 @@ function kk2()
   document.getElementById("tower2").style.backgroundImage ="url('images/airbuttonover.png')";
   document.getElementById("tower3").style.backgroundImage ="url('images/freezebutton.png')";
 }
+/**
+ * Auswählen des dritten Turms
+ */
 function kk3()
 {
   player.selectedtower=3;
@@ -40,6 +56,10 @@ function kk3()
   document.getElementById("tower3").style.backgroundImage ="url('images/freezebuttonover.png')";
 }
 
+/**
+ * Anzeigen des Lebens, Geldes und der aktuellen Welle
+ * @constructor
+ */
 function Scoring()
 {
     const addLife = document.getElementById("leben");
@@ -49,6 +69,11 @@ function Scoring()
     const addWelle = document.getElementById("welle");
     addWelle.innerHTML = "Welle : " + wavecounter + " / 5";
 }
+
+/**
+ * Anzeige, wenn der Spieler gewonnen hat
+ * @constructor
+ */
 function Win()
 {
   if(win){
@@ -64,6 +89,9 @@ function Win()
    }
 }
 
+/**
+ * Zeigen der Informationen zum Turm
+ */
 function getinfobox()
 {
   if(player.selectedtower===1)

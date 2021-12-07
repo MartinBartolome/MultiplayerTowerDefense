@@ -1,3 +1,12 @@
+/**
+ * Funktion für einen Schuss
+ * @param x
+ * @param y
+ * @param angle
+ * @param damage
+ * @param type
+ * @constructor
+ */
 const Missile = function (x, y, angle, damage, type) {
     this.x = x * 30;
     this.y = y * 30;
@@ -7,14 +16,24 @@ const Missile = function (x, y, angle, damage, type) {
     this.critical = false;
     const img = new Image();
 
+    /**
+     * Bewegen des Schusses in die richtung des Feindes
+     */
     this.move = function () {
         this.x += Math.cos(this.angle) * 8;
         this.y -= Math.sin(this.angle) * 8;
     }
+    /**
+     * Zeichnen des Schusses
+     */
     this.draw = function () {
         img.src = "./images/" + this.type + "ball.png";
         context.drawImage(img, this.x, this.y, 20, 20);
     }
+    /**
+     * Explodieren lassen des Schusses
+     * @param i
+     */
     this.explode = function (i) {
         for (let y = 0; y < wave.length; y++) {
             if (this.x <= (wave[y].x + 30) && (this.x + 30) >= (wave[y].x) && this.y <= (wave[y].y + 30) && (this.y + 30) >= (wave[y].y)) {

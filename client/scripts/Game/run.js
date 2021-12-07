@@ -1,4 +1,6 @@
-/* Global game runner */
+/**
+ * GameLoop Funktion
+ */
 function run()
 {
   	Win();

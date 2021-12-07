@@ -94,6 +94,10 @@ let gameStatus = {
   canSpawn: false
 };
 
+/**
+ * GameLoop
+ * @returns {Promise<void>}
+ */
 async function gameLoop() {
   // this is the main loop
   let i = 0;
@@ -134,6 +138,10 @@ async function gameLoop() {
   }
 }
 
+/**
+ * Generierung einer GUID
+ * @returns {string}
+ */
 server.getUniqueID = function () {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -143,6 +151,10 @@ server.getUniqueID = function () {
   return s4() + s4() + '-' + s4();
 };
 
+/**
+ * Senden einer Broadcast Nachricht
+ * @param data
+ */
 function broadcast(data) {
   server.clients.forEach(client => {
     if (client.readyState === WebSocket.OPEN) {

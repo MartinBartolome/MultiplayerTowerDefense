@@ -1,6 +1,10 @@
 class RegisterMessage extends window.Message
 {
-
+    /**
+     * Klasse zum registrieren des Spielers am Server
+     * @param playerID
+     * @param playerName
+     */
     constructor(playerID, playerName) {
         super(window.messageType.REGISTER);
         this.playerID = playerID;

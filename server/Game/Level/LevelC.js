@@ -1,4 +1,8 @@
 const Level = require("./Level")
+
+/**
+ * drittes Level
+ */
 class LevelC extends Level.Level{
 
     constructor() {

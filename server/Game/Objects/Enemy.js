@@ -1,3 +1,6 @@
+/**
+ * Objekt für den Feind
+ */
 class Enemy
 {
     constructor(x, y, pv, speed, type, sprite, genre, wave) {

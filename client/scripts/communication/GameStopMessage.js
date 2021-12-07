@@ -1,6 +1,8 @@
 class GameStopMessage extends window.Message
 {
-
+    /**
+     * Simple Spielstop Message, mit der Information, ob das Spiel gewonnen wurde oder nicht.
+     */
     constructor() {
         super(window.messageType.GAMESTART);
     }
