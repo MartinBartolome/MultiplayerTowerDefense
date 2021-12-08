@@ -130,16 +130,32 @@ html
 	z-index:1;
 }
 #loose{
-	background-color:red;
-	height:50px;
-	width:320px;
+	background-image: url("../images/loose.png");
+	height:600px;
+	width:900px;
 	margin: auto;
 	position: absolute;
-	font-size: 40px;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	display: none;
 	color:black;
+	z-index:1;
+}
+
+.resetbutton{
+	margin-left:320px;
+	margin-top:410px;
+	height:100px;
+	width:260px;
+	z-index:2;
+}
+
+#waitonplayer{
+	margin-left:280px;
+	top:300px;
+	color:red;
+	position:absolute;
+	font-size:30px;
 }

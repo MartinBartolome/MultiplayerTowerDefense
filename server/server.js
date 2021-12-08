@@ -11,6 +11,7 @@ const {LevelB} = require("./Game/Level/LevelB");
 const {LevelC} = require("./Game/Level/LevelC");
 const {Game} = require("./Game/Game");
 const {UpdateType} = require("./communication/Message");
+const {LevelD} = require("./Game/Level/LevelD");
 
 const server = new WebSocket.Server({ port: 8080 });
 
@@ -51,14 +52,22 @@ server.on('connection', socket => {
         case Message.MessageType.GAMEUPDATE:
           let updatemessage = new GameUpdateMessage();
           updatemessage.fromStream(event.data);
-          if(updatemessage.updateType === UpdateType.Tower)
+          switch (updatemessage.updateType)
           {
-            broadcast(updatemessage);
+            case UpdateType.Tower:
+              broadcast(updatemessage);
+              break;
+            case UpdateType.Wave:
+              gameStatus.canSpawn = true;
+              break;
+            case UpdateType.Restart:
+              gameStatus.Restart = true;
+              break;
+            case UpdateType.NextLevel:
+              gameStatus.nextLevel = true;
+              break;
           }
-          if(updatemessage.updateType === UpdateType.Wave)
-          {
-            gameStatus.canSpawn = true;
-          }
+
           console.log("Chat Message", updatemessage);
           break;
         default:
@@ -76,7 +85,7 @@ server.on('connection', socket => {
     gameStatus.started = false;
     gameStatus.countdown = 2;
     if (gameStatus.registeredPlayers.size < 2) {
-      let message = GameStopMessage(false);
+      let message = new GameStopMessage(false);
       broadcast(message);
     }
   };
@@ -91,7 +100,9 @@ let gameStatus = {
   countdown: 3,
   countdownStarted: false,
   started: false,
-  canSpawn: false
+  canSpawn: false,
+  nextLevel: false,
+  Restart:false
 };
 
 /**
@@ -121,8 +132,8 @@ async function gameLoop() {
       gameStatus.started = true;
       console.log(message);
       broadcast(message);
-      let message2 = new GameStartMessage(new LevelB());
-      this.Game = new Game(server,new LevelB());
+      let message2 = new GameStartMessage(new LevelA());
+      this.Game = new Game(server,new LevelA());
       broadcast(message2);
       console.log(message2);
     } else if (gameStatus.started) {
@@ -132,6 +143,40 @@ async function gameLoop() {
         console.log("spawn");
         this.Game.forceNextWave();
         gameStatus.canSpawn = false;
+      }
+      if(gameStatus.nextLevel === true)
+      {
+        switch (this.Game.lvl)
+        {
+          case 1:
+            let mb = new GameStartMessage(new LevelB());
+            this.Game = new Game(server,new LevelB());
+            broadcast(mb);
+            break;
+          case 2:
+            let mc = new GameStartMessage(new LevelC());
+            this.Game = new Game(server,new LevelC());
+            broadcast(mc);
+            break;
+          case 3:
+            let md = new GameStartMessage(new LevelD());
+            this.Game = new Game(server,new LevelD());
+            broadcast(md);
+            break;
+          case 4:
+            let ma = new GameStartMessage(new LevelD());
+            this.Game = new Game(server,new LevelD());
+            broadcast(ma);
+            break;
+        }
+        gameStatus.nextLevel = false;
+      }
+      if(gameStatus.Restart === true)
+      {
+        let message2 = new GameStartMessage(new LevelA());
+        this.Game = new Game(server,new LevelA());
+        broadcast(message2);
+        gameStatus.Restart = false;
       }
     }
     await sleep(1000);
