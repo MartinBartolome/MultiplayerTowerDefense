@@ -130,7 +130,7 @@ html
 	z-index:1;
 }
 #loose{
-	background-image: url("../images/loose.png");
+	background-image: url("../images/defeat.png");
 	height:600px;
 	width:900px;
 	margin: auto;
@@ -145,11 +145,14 @@ html
 }
 
 .resetbutton{
-	margin-left:320px;
-	margin-top:410px;
-	height:100px;
-	width:260px;
+	margin-left:306px;
+	margin-top:412px;
+	height:106px;
+	width:290px;
 	z-index:2;
+}
+.resetbutton:hover{
+	background-image: url("../images/defeat_button_pressed.png");
 }
 
 #waitonplayer{
