@@ -83,10 +83,27 @@ function Win()
    if(win && player.leben >= 1){
     document.getElementById("win").style.display = "inline";
    }
+   if(!win)
+   {
+       document.getElementById("win").style.display = "none";
+   }
    if(player.leben <= 0){
        const loose = document.getElementById("loose");
        loose.style.display = "inline";
    }
+   else
+   {
+       const loose = document.getElementById("loose");
+       loose.style.display = "none";
+       const wait = document.getElementById("waitonplayer");
+       wait.innerHTML = "";
+   }
+}
+
+function waitonplayer()
+{
+    const loose = document.getElementById("waitonplayer");
+    loose.innerHTML = "Warte auf weitere Spieler";
 }
 
 /**

@@ -17,7 +17,9 @@ const UpdateType = Object.freeze({
     Tower: 0,
     Level: 1,
     Player: 2,
-    Wave: 3
+    Wave: 3,
+    Restart: 4,
+    NextLevel:5
 });
 
 /**

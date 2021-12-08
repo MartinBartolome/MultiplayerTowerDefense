@@ -5,7 +5,7 @@ const websocketGame = {
   quit: false,
   running: true
 };
-const playercount = 0;
+let playercount = 0;
 // init script when the DOM is ready.
 let level = [];
 $(function () {
@@ -58,9 +58,15 @@ function connect() {
               console.log(chatMessage);
               break;
             case messageType.GAMESTART:
+              player.leben = 0;
+              level = [];
+              wave = [];
+              towers = [];
+              win = false;
               let gamestartmessage = new window.GameStartMessage();
               gamestartmessage.fromStream(event.data);
               console.log(gamestartmessage);
+              player = new Player(1);
               level = [];
               level = gamestartmessage.Level.level;
               if (websocketGame.running) {
@@ -106,7 +112,6 @@ function connect() {
               win = gamestopmessage.win;
               websocketGame.running = false;
               reset();
-              removeCanvas();
               break;
             default:
               console.log(
@@ -139,10 +144,35 @@ function connect() {
 }
 
 /**
+ * Zurücksetzen des Spiels und warten auf neue Spieler
+ */
+function replay()
+{
+  reset();
+  waitonplayer();
+  let restart = new window.GameUpdateMessage(UpdateType.Restart);
+  websocketGame.socket.send(restart.toStream());
+}
+
+/**
+ * start des nächsten Levels
+ */
+function nextlevel()
+{
+  reset();
+  let nextlevel = new window.GameUpdateMessage(UpdateType.NextLevel);
+  websocketGame.socket.send(nextlevel.toStream());
+}
+
+/**
  * Zurücksetzen des Spiels
  */
 function reset() {
-  window.GameSession.handleGameExit();
+  websocketGame.running = false;
+  player.leben = 0;
+  level = [];
+  wave = [];
+  towers = [];
 }
 
 /**
@@ -165,11 +195,6 @@ function startGame() {
 
       websocketGame.playerName = playerName;
       let message = new RegisterMessage(websocketGame.playerID,websocketGame.playerName);
-      if(playercount === 0)
-      {
-
-      }
-
       console.log(message);
       websocketGame.socket.send(message.toStream());
       $('#div_Lobby').addClass('d-none');
