@@ -151,9 +151,12 @@ html
 	width:290px;
 	z-index:2;
 }
-.resetbutton:hover{
-	background-image: url("../images/defeat_button_pressed.png");
+#victorybutton:hover{
+	background-image: url("../images/victory_button_pressed.png");
 }
+#loosebutton:hover{
+	 background-image: url("../images/defeat_button_pressed.png");
+ }
 
 #waitonplayer{
 	margin-left:280px;
