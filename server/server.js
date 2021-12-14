@@ -164,8 +164,8 @@ async function gameLoop() {
             broadcast(md);
             break;
           case 4:
-            let ma = new GameStartMessage(new LevelD());
-            this.Game = new Game(server,new LevelD());
+            let ma = new GameStartMessage(new LevelA());
+            this.Game = new Game(server,new LevelA());
             broadcast(ma);
             break;
         }
