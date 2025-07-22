@@ -9,9 +9,14 @@ const {GameStopMessage} = require("./communication/ServerMessages/GameStopMessag
 const {LevelA} = require("./Game/Level/LevelA");
 const {LevelB} = require("./Game/Level/LevelB");
 const {LevelC} = require("./Game/Level/LevelC");
+const {LevelD} = require("./Game/Level/LevelD");
+const {LevelE} = require("./Game/Level/LevelE");
+const {LevelF} = require("./Game/Level/LevelF");
+const {LevelG} = require("./Game/Level/LevelG");
+const {LevelH} = require("./Game/Level/LevelH");
+const {LevelI} = require("./Game/Level/LevelI");
 const {Game} = require("./Game/Game");
 const {UpdateType} = require("./communication/Message");
-const {LevelD} = require("./Game/Level/LevelD");
 
 const server = new WebSocket.Server({ port: 8080 });
 
@@ -164,6 +169,31 @@ async function gameLoop() {
             broadcast(md);
             break;
           case 4:
+            let me = new GameStartMessage(new LevelE());
+            this.Game = new Game(server,new LevelE());
+            broadcast(me);
+            break;
+          case 5:
+            let mf = new GameStartMessage(new LevelF());
+            this.Game = new Game(server,new LevelF());
+            broadcast(mf);
+            break;
+          case 6:
+            let mg = new GameStartMessage(new LevelG());
+            this.Game = new Game(server,new LevelG());
+            broadcast(mg);
+            break;
+          case 7:
+            let mh = new GameStartMessage(new LevelH());
+            this.Game = new Game(server,new LevelH());
+            broadcast(mh);
+            break;
+          case 8:
+            let mi = new GameStartMessage(new LevelI());
+            this.Game = new Game(server,new LevelI());
+            broadcast(mi);
+            break;
+          case 9:
             let ma = new GameStartMessage(new LevelA());
             this.Game = new Game(server,new LevelA());
             broadcast(ma);

@@ -136,6 +136,96 @@ class Game{
                             this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"blob",5);
                         }
                     }
+                    if(this.lvl===5){
+                        this.nbWelleTotal = 5;
+                        if(this.NumWelle===1){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/orange.png',"blob",6);
+                        }
+                        if(this.NumWelle===2){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/soldat.png',"soldat",6);
+                        }
+                        if(this.NumWelle===3){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"ritter",6);
+                        }
+                        if(this.NumWelle===4){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/knight.png',"koenig",6);
+                        }
+                        if(this.NumWelle===5){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"koenig",7);
+                        }
+                    }
+                    if(this.lvl===6){
+                        this.nbWelleTotal = 5;
+                        if(this.NumWelle===1){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/orange.png',"blob",7);
+                        }
+                        if(this.NumWelle===2){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/orange.png',"soldat",6);
+                        }
+                        if(this.NumWelle===3){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"ritter",7);
+                        }
+                        if(this.NumWelle===4){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"koenig",6);
+                        }
+                        if(this.NumWelle===5){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/knight.png',"koenig",7);
+                        }
+                    }
+                    if(this.lvl===7){
+                        this.nbWelleTotal = 5;
+                        if(this.NumWelle===1){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/orange.png',"blob",7);
+                        }
+                        if(this.NumWelle===2){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/soldat.png',"soldat",7);
+                        }
+                        if(this.NumWelle===3){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"ritter",7);
+                        }
+                        if(this.NumWelle===4){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"koenig",7);
+                        }
+                        if(this.NumWelle===5){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"koenig",8);
+                        }
+                    }
+                    if(this.lvl===8){
+                        this.nbWelleTotal = 5;
+                        if(this.NumWelle===1){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/orange.png',"blob",8);
+                        }
+                        if(this.NumWelle===2){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/orange.png',"soldat",7);
+                        }
+                        if(this.NumWelle===3){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/knight.png',"ritter",8);
+                        }
+                        if(this.NumWelle===4){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"koenig",7);
+                        }
+                        if(this.NumWelle===5){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/ecuyer.png',"koenig",8);
+                        }
+                    }
+                    if(this.lvl===9){
+                        this.nbWelleTotal = 5;
+                        if(this.NumWelle===1){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/orange.png',"blob",8);
+                        }
+                        if(this.NumWelle===2){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/soldat.png',"soldat",8);
+                        }
+                        if(this.NumWelle===3){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"ritter",8);
+                        }
+                        if(this.NumWelle===4){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"sol",'./images/knight.png',"koenig",8);
+                        }
+                        if(this.NumWelle===5){
+                            this.enemySpawn(j*30+15,i*30+15,100,1,"air",'./images/flybig.png',"koenig",10);
+                        }
+                    }
                 }
             }
         }
